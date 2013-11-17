@@ -1,6 +1,6 @@
-package edu.mum.party;
+package edu.mum.client;
 
-public class Customer implements ICustomer{
+public abstract class Client implements IClient{
 	private String name;
 	private String street;
 	private String city;
@@ -8,7 +8,7 @@ public class Customer implements ICustomer{
 	private String zip;
 	private String email;
 
-	public Customer(String name, String street, String city, String state, String zip, String email){
+	public Client(String name, String street, String city, String state, String zip, String email){
 		this.city 	= city;
 		this.name 	= name;
 		this.state 	= state;
