@@ -7,7 +7,8 @@ import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
 
 public class Account implements IAccount {
-	protected List<IEntry> entries = new ArrayList<IEntry>();
+	protected List<IEntry> deposits = new ArrayList<IEntry>();
+	protected List<IEntry> withdrawals = new ArrayList<IEntry>();
 	private String accountNo;
 	private double balance;
 	private IClient client;
@@ -34,11 +35,6 @@ public class Account implements IAccount {
 		return balance;
 
 	}
-	
-	@Override
-	public void addEntry(IEntry entry) {
-		entries.add(entry);
-	}
 
 	@Override
 	public void notifyClient() {
@@ -47,8 +43,9 @@ public class Account implements IAccount {
 
 	@Override
 	public void deposit(IEntry entry) {
-		// TODO Auto-generated method stub
-		
+		deposits.add(entry);
+		this.balance += entry.getAmount();
+		notifyClient();
 	}
 
 	@Override
@@ -57,4 +54,9 @@ public class Account implements IAccount {
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		return "Account [accountNo=" + accountNo + ", balance=" + balance
+				+ ", client=" + client + "]";
+	}
 }
