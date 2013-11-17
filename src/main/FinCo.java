@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Date;
+
 import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 import edu.mum.client.IClient;
@@ -13,7 +15,11 @@ public class FinCo {
 		IAccount account = new Account(client, "222 5555");
 		System.out.print(account);
 		
-		IEntry entry = new Entry();
+		// deposite
+		IEntry entry = new Entry(new Date(), 200);
 		account.deposit(entry);
+		
+		account.addEntry(entry);
+		
 	}
 }
