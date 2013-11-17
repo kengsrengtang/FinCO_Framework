@@ -1,7 +1,7 @@
-package edu.mum.party;
+package edu.mum.client;
 
 
-public interface ICustomer {
+public interface IClient {
 	void addAccount();
 	void removeAccount();
 	void sendEmailToCustomer();
