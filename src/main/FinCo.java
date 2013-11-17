@@ -19,7 +19,6 @@ public class FinCo {
 		IEntry entry = new Entry(new Date(), 200);
 		account.deposit(entry);
 		
-		account.addEntry(entry);
 		
 	}
 }
