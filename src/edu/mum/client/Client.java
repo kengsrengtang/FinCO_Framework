@@ -61,4 +61,9 @@ public abstract class Client implements IClient{
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Client [name=" + name + ", email=" + email + "]";
+	}
+
 }
