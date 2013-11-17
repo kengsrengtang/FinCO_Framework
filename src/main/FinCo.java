@@ -22,7 +22,8 @@ public class FinCo {
 		IEntry entry = new Entry(new Date(), 200);
 		IOperation depositOperation = new Deposit(account, entry);
 		OperationManager manager = new OperationManager();
-
+		
+		manager.sumbit(depositOperation);
 		
 		
 	}
