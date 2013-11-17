@@ -1,9 +1,9 @@
 package edu.mum.account;
 
-import edu.mum.entry.Entry;
+import edu.mum.entry.Transaction;
 
 public interface IAccount {
 	void getBalance();
-	void addEntry(Entry entry);
+	void addEntry(Transaction entry);
 	void notifyCustomer();
 }
