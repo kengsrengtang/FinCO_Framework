@@ -1,4 +1,4 @@
-package mum.party;
+package edu.mum.party;
 
 
 public interface ICustomer {
