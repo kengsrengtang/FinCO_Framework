@@ -5,7 +5,7 @@ import java.util.List;
 
 public class OperationManager {
 	List<IOperation> operations = new ArrayList<>();
-	public void logAndExecute(IOperation operation){
+	public void sumbit(IOperation operation){
 		operations.add(operation);
 		operation.execute();
 	}
