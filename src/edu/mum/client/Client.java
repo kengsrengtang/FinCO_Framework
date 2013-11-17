@@ -9,7 +9,7 @@ public abstract class Client implements IClient{
 	private String zip;
 	private String email;
 
-	public Client(String name, String street, String city, String state, String zip, String email){
+	Client(String name, String street, String city, String state, String zip, String email){
 		this.city 	= city;
 		this.name 	= name;
 		this.state 	= state;
