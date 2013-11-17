@@ -1,5 +1,5 @@
 package edu.mum.client;
 
-public interface IOrganization {
+public interface IOrganization extends IClient {
 
 }
