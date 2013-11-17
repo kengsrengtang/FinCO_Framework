@@ -3,23 +3,26 @@ package edu.mum.account;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
 
 public class Account implements IAccount {
 	protected List<IEntry> entries = new ArrayList<IEntry>();
 	private String accountNo;
 	private double balance;
+	private IClient client;
 	
-	public Account(String accountNo) {
+	public Account(IClient client,String accountNo) {
+		this.client = client;
 		this.accountNo = accountNo;
 	}
 
 	public String getAccountNo() {
 		return accountNo;
 	}
-
-	public void setAccountNo(String accountNo) {
-		this.accountNo = accountNo;
+	
+	public IClient getClient() {
+		return client;
 	}
 
 	public void setBalance(double balance) {
@@ -38,7 +41,7 @@ public class Account implements IAccount {
 	}
 
 	@Override
-	public void notifyCustomer() {
+	public void notifyClient() {
 		// TODO Auto-generated method stub
 	}
 
