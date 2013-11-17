@@ -1,5 +1,6 @@
 package edu.mum.client;
 
+
 public abstract class Client implements IClient{
 	private String name;
 	private String street;
