@@ -45,4 +45,16 @@ public class Account implements IAccount {
 		// TODO Auto-generated method stub
 	}
 
+	@Override
+	public void deposit(IEntry entry) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean withdraw(IEntry entry) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

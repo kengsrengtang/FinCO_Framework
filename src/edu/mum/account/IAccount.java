@@ -8,4 +8,6 @@ public interface IAccount {
 	double getBalance();
 	void addEntry(IEntry entry);
 	void notifyClient();
+	void deposit(IEntry entry);
+	boolean withdraw(IEntry entry);
 }

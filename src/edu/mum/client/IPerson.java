@@ -1,5 +1,5 @@
 package edu.mum.client;
 
-public interface IPerson {
+public interface IPerson extends IClient {
 
 }
