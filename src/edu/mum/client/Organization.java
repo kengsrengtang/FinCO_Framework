@@ -8,4 +8,7 @@ public class Organization extends Client implements IOrganization {
 		// TODO Auto-generated constructor stub
 	}
 
+
+
+
 }

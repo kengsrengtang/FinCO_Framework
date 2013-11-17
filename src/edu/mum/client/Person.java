@@ -1,5 +1,7 @@
 package edu.mum.client;
 
+import edu.mum.account.IAccount;
+
 public class Person extends Client implements IPerson {
 
 	public Person(String name, String street, String city, String state,

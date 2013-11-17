@@ -6,11 +6,12 @@ import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 import edu.mum.client.IClient;
 import edu.mum.client.Person;
-import edu.mum.entry.Deposit;
+import edu.mum.entry.DepositOperation;
 import edu.mum.entry.Entry;
 import edu.mum.entry.IEntry;
 import edu.mum.entry.IOperation;
 import edu.mum.entry.OperationManager;
+import edu.mum.entry.WithdrawOperation;
 
 public class FinCo {
 	public static void main(String[] args){
@@ -20,10 +21,12 @@ public class FinCo {
 		
 		// deposite
 		IEntry entry = new Entry(new Date(), 200);
-		IOperation depositOperation = new Deposit(account, entry);
+		IOperation depositOperation = new DepositOperation(account, entry);
 		OperationManager manager = new OperationManager();
+		IOperation withDrawOperation = new WithdrawOperation(account, entry);
 		
-		manager.sumbit(depositOperation);
+		manager.submit(depositOperation);
+		manager.submit(withDrawOperation);
 		
 		
 	}
