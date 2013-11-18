@@ -39,14 +39,15 @@ public class Account extends Observable implements IAccount {
 
 	@Override
 	public void notifyClient() {
-		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void deposit(IEntry entry) {
 		deposits.add(entry);
 		this.balance += entry.getAmount();
-		notifyClient();
+		setChanged();
+		this.notifyObservers(this.balance);
 	}
 
 	@Override
