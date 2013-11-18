@@ -2,11 +2,12 @@ package edu.mum.account;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
 
-public class Account implements IAccount {
+public class Account extends Observable implements IAccount {
 	protected List<IEntry> deposits = new ArrayList<IEntry>();
 	protected List<IEntry> withdrawals = new ArrayList<IEntry>();
 	private String accountNo;
@@ -38,20 +39,25 @@ public class Account implements IAccount {
 
 	@Override
 	public void notifyClient() {
-		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void deposit(IEntry entry) {
 		deposits.add(entry);
 		this.balance += entry.getAmount();
-		notifyClient();
+		setChanged();
+		this.notifyObservers(this.balance);
 	}
 
 	@Override
 	public boolean withdraw(IEntry entry) {
-		// TODO Auto-generated method stub
-		return false;
+		if(entry.getAmount()>balance) {
+			return false;
+		}
+		balance -= entry.getAmount();
+		withdrawals.add(entry);
+		return true;
 	}
 
 	@Override

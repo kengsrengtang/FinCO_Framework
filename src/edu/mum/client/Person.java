@@ -1,6 +1,6 @@
 package edu.mum.client;
 
-import edu.mum.account.IAccount;
+import java.util.Observable;
 
 public class Person extends Client implements IPerson {
 
@@ -8,6 +8,11 @@ public class Person extends Client implements IPerson {
 			String zip, String email) {
 		super(name, street, city, state, zip, email);
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		this.sendEmailToCustomer();
 	}
 
 }
