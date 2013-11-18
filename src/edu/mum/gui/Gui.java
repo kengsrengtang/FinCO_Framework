@@ -61,11 +61,11 @@ public class Gui extends javax.swing.JFrame {
 		JTable1.setBounds(0, 0, 420, 0);	
 		// rowdata = new Object[8];
 	}
-	public void addButtonInTopPanel(Button button){
+	public void addButtonInTopPanel(JButton button){
 		topPanel.add(button);
 	}
-	public void addButtonInRightPanel(Button button){
-		rightPanel.add(button);
+	public void addButtonInRightPanel(JButton myButton){
+		rightPanel.add(myButton);
 	}
 	private void initializeRightPanel() {
 		rightPanel = new JPanel();
@@ -83,6 +83,7 @@ public class Gui extends javax.swing.JFrame {
 
 	public Gui() {
 		myframe = this;
+		setSize(590,340);
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		setTitle("FinCo Application.");
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -118,7 +119,7 @@ public class Gui extends javax.swing.JFrame {
 		JButton_Deposit.addActionListener(lSymAction);
 		JButton_Withdraw.addActionListener(lSymAction);
 		JButton_Addinterest.addActionListener(lSymAction);
-		pack();
+		//pack();
 	}
 
 	void exitApplication() {
