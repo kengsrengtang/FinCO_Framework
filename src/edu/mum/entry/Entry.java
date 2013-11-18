@@ -3,10 +3,9 @@ package edu.mum.entry;
 import java.util.Date;
 
 public class Entry implements IEntry{
-	Date date;
-	double amount;
+	private Date date;
+	private double amount;
 	public Entry(Date date, double amount) {
-		super();
 		this.date = date;
 		this.amount = amount;
 	}
@@ -14,5 +13,9 @@ public class Entry implements IEntry{
 	public double getAmount() {
 		// TODO Auto-generated method stub
 		return amount;
+	}
+	@Override
+	public Date getDate() {
+		return date;
 	}
 }
