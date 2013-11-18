@@ -27,8 +27,8 @@ public class Account extends Observable implements IAccount {
 		return client;
 	}
 
-	public void setBalance(double balance) {
-		this.balance = balance;
+	public void setBalance(double amount) {
+		this.balance = amount;
 	}
 
 	@Override
