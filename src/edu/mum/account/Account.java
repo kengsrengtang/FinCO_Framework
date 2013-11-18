@@ -46,7 +46,7 @@ public class Account extends Observable implements IAccount {
 	public void deposit(IEntry entry) {
 		deposits.add(entry);
 		this.balance += entry.getAmount();
-		setChanged();
+		this.setChanged();
 		this.notifyObservers(this.balance);
 	}
 
