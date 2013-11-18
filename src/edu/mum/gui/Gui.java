@@ -46,10 +46,9 @@ public class Gui extends javax.swing.JFrame {
 
 	private void initializeCenterPanel() {
 		JScrollPane1 = new JScrollPane();
-		model = new DefaultTableModel();
+		initializeTableModelWithHeader(null);
 		JTable1 = new JTable(model);
 		
-		setHeaderColumns(null);
 		rowdata = new Object[8];
 		newaccount = false;
 		centerPanel = new JPanel();
@@ -284,7 +283,8 @@ public class Gui extends javax.swing.JFrame {
 
 	}
 	
-	public void setHeaderColumns(String[] header) {
+	public void initializeTableModelWithHeader(String[] header) {
+		model = new DefaultTableModel();
 		if(header != null) dataHeader = header;
 		for(String e:dataHeader) {
 			model.addColumn(e);
