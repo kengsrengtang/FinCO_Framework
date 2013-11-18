@@ -1,8 +1,6 @@
 package edu.mum.gui;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 
@@ -21,6 +19,8 @@ public class Gui extends javax.swing.JFrame {
 	javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
 	javax.swing.JButton JButton_Addinterest = new javax.swing.JButton();
 	javax.swing.JButton JButton_Exit = new javax.swing.JButton();
+	
+	private String[] dataHeader = {"AccountNr","Name","City","P/C","Ch/S","Amount"};
 
 	String accountnr, clientName, street, city, zip, state, accountType,
 			clientType, amountDeposit;
@@ -48,12 +48,8 @@ public class Gui extends javax.swing.JFrame {
 		JScrollPane1 = new JScrollPane();
 		model = new DefaultTableModel();
 		JTable1 = new JTable(model);
-		model.addColumn("AccountNr");
-		model.addColumn("Name");
-		model.addColumn("City");
-		model.addColumn("P/C");
-		model.addColumn("Ch/S");
-		model.addColumn("Amount");
+		
+		setHeaderColumns(null);
 		rowdata = new Object[8];
 		newaccount = false;
 		centerPanel = new JPanel();
@@ -285,5 +281,12 @@ public class Gui extends javax.swing.JFrame {
 				"Add interest to all accounts", "Add interest to all accounts",
 				JOptionPane.WARNING_MESSAGE);
 
+	}
+	
+	public void setHeaderColumns(String[] header) {
+		if(header != null) dataHeader = header;
+		for(String e:dataHeader) {
+			model.addColumn(e);
+		}
 	}
 }
