@@ -28,7 +28,5 @@ public class FinCo {
 		OperationManager manager = new OperationManager();
 		IOperation withDrawOperation = new WithdrawOperation(account, entry);
 		
-		manager.submit(depositOperation);
-		manager.submit(withDrawOperation);
 	}
 }
