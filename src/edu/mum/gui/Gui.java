@@ -30,9 +30,18 @@ public class Gui extends javax.swing.JFrame {
 	private JScrollPane JScrollPane1;
 	Gui myframe;
 	private Object rowdata[];
-
+	
 	private void initializeTopPanel() {
-		topPanel = new JPanel();
+		topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JButton_PerAC.setText("Add personal account");
+		topPanel.add(JButton_PerAC);
+		
+		JButton_CompAC.setText("Add company account");
+		JButton_CompAC.setActionCommand("jbutton");
+		topPanel.add(JButton_CompAC);
+		
+		JButton_Addinterest.setText("Add interest");
+		topPanel.add(JButton_Addinterest);
 	}
 
 	private void initializeCenterPanel() {
@@ -55,6 +64,16 @@ public class Gui extends javax.swing.JFrame {
 
 	private void initializeRightPanel() {
 		rightPanel = new JPanel();
+		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+		JButton_Deposit.setText("Deposit");
+		//JButton_Deposit.setBounds(468, 104, 96, 33);
+		rightPanel.add(JButton_Deposit);
+		
+		JButton_Withdraw.setText("Withdraw");
+		rightPanel.add(JButton_Withdraw);
+		
+		JButton_Exit.setText("Exit");
+		rightPanel.add(JButton_Exit);
 	}
 
 	public Gui() {
@@ -81,25 +100,9 @@ public class Gui extends javax.swing.JFrame {
 		JTable1.setBounds(0, 0, 420, 0);
 		// rowdata = new Object[8];
 
-		JButton_PerAC.setText("Add personal account");
-		centerPanel.add(JButton_PerAC);
-		JButton_PerAC.setBounds(24, 20, 192, 33);
-		JButton_CompAC.setText("Add company account");
-		JButton_CompAC.setActionCommand("jbutton");
-		centerPanel.add(JButton_CompAC);
-		JButton_CompAC.setBounds(240, 20, 192, 33);
-		JButton_Deposit.setText("Deposit");
-		centerPanel.add(JButton_Deposit);
-		JButton_Deposit.setBounds(468, 104, 96, 33);
-		JButton_Withdraw.setText("Withdraw");
-		centerPanel.add(JButton_Withdraw);
-		JButton_Addinterest.setBounds(448, 20, 106, 33);
-		JButton_Addinterest.setText("Add interest");
-		centerPanel.add(JButton_Addinterest);
-		JButton_Withdraw.setBounds(468, 164, 96, 33);
-		JButton_Exit.setText("Exit");
-		centerPanel.add(JButton_Exit);
-		JButton_Exit.setBounds(468, 248, 96, 31);
+		
+		
+		
 		// lineBorder1.setRoundedCorners(true);
 		// lineBorder1.setLineColor(java.awt.Color.green);
 		// $$ lineBorder1.move(24,312);
