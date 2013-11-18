@@ -62,8 +62,7 @@ public abstract class Client implements IClient{
 
 	@Override
 	public void sendEmailToCustomer() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("send email to Mr/Ms" + this.name );
 	}
 
 	@Override
