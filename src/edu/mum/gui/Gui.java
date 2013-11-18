@@ -36,9 +36,21 @@ public class Gui extends javax.swing.JFrame {
 	}
 
 	private void initializeCenterPanel() {
+		JScrollPane1 = new JScrollPane();
+		model = new DefaultTableModel();
+		JTable1 = new JTable(model);
+		model.addColumn("AccountNr");
+		model.addColumn("Name");
+		model.addColumn("City");
+		model.addColumn("P/C");
+		model.addColumn("Ch/S");
+		model.addColumn("Amount");
+		rowdata = new Object[8];
+		newaccount = false;
 		centerPanel = new JPanel();
 		centerPanel.setLayout(null);
 		centerPanel.setBounds(0, 0, 575, 310);
+		centerPanel.add(JScrollPane1);
 	}
 
 	private void initializeRightPanel() {
@@ -63,19 +75,7 @@ public class Gui extends javax.swing.JFrame {
 		 * /Add five buttons on the pane /for Adding personal account, Adding
 		 * company account /Deposit, Withdraw and Exit from the system
 		 */
-		JScrollPane1 = new JScrollPane();
-		model = new DefaultTableModel();
-		JTable1 = new JTable(model);
-		model.addColumn("AccountNr");
-		model.addColumn("Name");
-		model.addColumn("City");
-		model.addColumn("P/C");
-		model.addColumn("Ch/S");
-		model.addColumn("Amount");
-		rowdata = new Object[8];
-		newaccount = false;
-
-		centerPanel.add(JScrollPane1);
+		
 		JScrollPane1.setBounds(12, 92, 444, 160);
 		JScrollPane1.getViewport().add(JTable1);
 		JTable1.setBounds(0, 0, 420, 0);

@@ -57,6 +57,8 @@ public class Account extends Observable implements IAccount {
 		}
 		balance -= entry.getAmount();
 		withdrawals.add(entry);
+		this.setChanged();
+		this.notifyObservers(this.balance);
 		return true;
 	}
 
