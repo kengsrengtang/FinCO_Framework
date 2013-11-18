@@ -60,6 +60,10 @@ public class Gui extends javax.swing.JFrame {
 		centerPanel.setLayout(null);
 		centerPanel.setBounds(0, 0, 575, 310);
 		centerPanel.add(JScrollPane1);
+		JScrollPane1.setBounds(12, 92, 444, 160);
+		JScrollPane1.getViewport().add(JTable1);
+		JTable1.setBounds(0, 0, 420, 0);	
+		// rowdata = new Object[8];
 	}
 
 	private void initializeRightPanel() {
@@ -94,11 +98,7 @@ public class Gui extends javax.swing.JFrame {
 		 * /Add five buttons on the pane /for Adding personal account, Adding
 		 * company account /Deposit, Withdraw and Exit from the system
 		 */
-		
-		JScrollPane1.setBounds(12, 92, 444, 160);
-		JScrollPane1.getViewport().add(JTable1);
-		JTable1.setBounds(0, 0, 420, 0);
-		// rowdata = new Object[8];
+
 
 		
 		
