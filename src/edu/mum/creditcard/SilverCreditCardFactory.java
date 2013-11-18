@@ -1,4 +1,4 @@
-package edu.mum.credit_card;
+package edu.mum.creditcard;
 
 import edu.mum.client.IClient;
 

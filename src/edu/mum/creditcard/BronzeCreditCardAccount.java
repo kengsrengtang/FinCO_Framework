@@ -1,13 +1,14 @@
-package edu.mum.credit_card;
+package edu.mum.creditcard;
 
 import edu.mum.client.IClient;
 
-public class SilverCreditCardAccount extends CreditCardAccount{
+public class BronzeCreditCardAccount extends CreditCardAccount{
 	private double x,y;
-	public SilverCreditCardAccount(IClient client, String accountNo) {
+	public BronzeCreditCardAccount(IClient client, String accountNo) {
 		super(client, accountNo);
-		x = 0.055;
-		y = 0.11;
+		this.x = 0.06;
+		this.y = 0.12;
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

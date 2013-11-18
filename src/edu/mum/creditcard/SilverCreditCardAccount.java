@@ -1,13 +1,13 @@
-package edu.mum.credit_card;
+package edu.mum.creditcard;
 
 import edu.mum.client.IClient;
 
-public class GoalCreditCard extends CreditCardAccount{
+public class SilverCreditCardAccount extends CreditCardAccount{
 	private double x,y;
-	public GoalCreditCard(IClient client, String accountNo) {
+	public SilverCreditCardAccount(IClient client, String accountNo) {
 		super(client, accountNo);
-		x = 0.05;
-		y = 0.1;
+		x = 0.055;
+		y = 0.11;
 	}
 
 	@Override
