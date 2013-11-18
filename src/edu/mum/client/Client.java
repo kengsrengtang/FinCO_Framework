@@ -1,5 +1,9 @@
 package edu.mum.client;
 
+import java.util.ArrayList;
+
+import edu.mum.account.IAccount;
+
 
 public abstract class Client implements IClient{
 	private String name;
@@ -8,6 +12,7 @@ public abstract class Client implements IClient{
 	private String state;
 	private String zip;
 	private String email;
+	private ArrayList<IAccount> list;
 
 	Client(String name, String street, String city, String state, String zip, String email){
 		this.city 	= city;
@@ -16,6 +21,7 @@ public abstract class Client implements IClient{
 		this.street = street;
 		this.zip 	= zip;
 		this.email 	= email;
+		list = new ArrayList<>();
 		
 	}
 	
@@ -44,15 +50,14 @@ public abstract class Client implements IClient{
 	}
 
 	@Override
-	public void addAccount() {
-		// TODO Auto-generated method stub
+	public void addAccount(IAccount account) {
+		this.list.add(account);
 		
 	}
 
 	@Override
-	public void removeAccount() {
-		// TODO Auto-generated method stub
-		
+	public void removeAccount(IAccount account) {
+		this.list.remove(account);
 	}
 
 	@Override
