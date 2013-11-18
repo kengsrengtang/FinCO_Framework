@@ -58,10 +58,19 @@ public class Gui extends javax.swing.JFrame {
 		newaccount = false;
 		centerPanel = new JPanel();
 		centerPanel.setLayout(null);
-		centerPanel.setBounds(0, 0, 575, 310);
+		//centerPanel.setBounds(0, 0, 575, 310);
 		centerPanel.add(JScrollPane1);
+		JScrollPane1.setBounds(12, 92, 444, 160);
+		JScrollPane1.getViewport().add(JTable1);
+		JTable1.setBounds(0, 0, 420, 0);	
+		// rowdata = new Object[8];
 	}
-
+	public void addButtonInTopPanel(JButton button){
+		topPanel.add(button);
+	}
+	public void addButtonInRightPanel(JButton myButton){
+		rightPanel.add(myButton);
+	}
 	private void initializeRightPanel() {
 		rightPanel = new JPanel();
 		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
@@ -78,10 +87,10 @@ public class Gui extends javax.swing.JFrame {
 
 	public Gui() {
 		myframe = this;
+		setSize(590,340);
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		setTitle("FinCo Application.");
 		getContentPane().setLayout(new BorderLayout(0, 0));
-		setSize(575, 310);
 		initializeTopPanel();
 		initializeCenterPanel();
 		initializeRightPanel();
@@ -94,11 +103,7 @@ public class Gui extends javax.swing.JFrame {
 		 * /Add five buttons on the pane /for Adding personal account, Adding
 		 * company account /Deposit, Withdraw and Exit from the system
 		 */
-		
-		JScrollPane1.setBounds(12, 92, 444, 160);
-		JScrollPane1.getViewport().add(JTable1);
-		JTable1.setBounds(0, 0, 420, 0);
-		// rowdata = new Object[8];
+
 
 		
 		
@@ -118,7 +123,7 @@ public class Gui extends javax.swing.JFrame {
 		JButton_Deposit.addActionListener(lSymAction);
 		JButton_Withdraw.addActionListener(lSymAction);
 		JButton_Addinterest.addActionListener(lSymAction);
-
+		//pack();
 	}
 
 	void exitApplication() {
