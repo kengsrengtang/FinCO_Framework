@@ -6,7 +6,6 @@ import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 import edu.mum.client.ClientFactory;
 import edu.mum.client.IClient;
-import edu.mum.client.Person;
 import edu.mum.client.PersonFactory;
 import edu.mum.entry.DepositOperation;
 import edu.mum.entry.Entry;
