@@ -18,7 +18,7 @@ public class JDialogAddPersonalAccount extends JDialogAddAccount {
 		addComponents();
 		// TODO Auto-generated constructor stub
 	}
-
+//test comment
 	private void addComponents() {
 		// TODO Auto-generated method stub
 		JLabel lblBirthdate = new JLabel();
