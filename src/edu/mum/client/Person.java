@@ -1,13 +1,14 @@
 package edu.mum.client;
 
+import java.util.Date;
 import java.util.Observable;
 
 public class Person extends Client implements IPerson {
-
+	private Date birthDate;
 	public Person(String name, String street, String city, String state,
-			String zip, String email) {
+			String zip, String email, Date birthDate) {
 		super(name, street, city, state, zip, email);
-		// TODO Auto-generated constructor stub
+		this.birthDate = birthDate;
 	}
 
 	@Override
@@ -15,4 +16,11 @@ public class Person extends Client implements IPerson {
 		this.sendEmailToCustomer();
 	}
 
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}	
 }

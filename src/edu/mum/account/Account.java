@@ -3,7 +3,6 @@ package edu.mum.account;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-
 import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
 
@@ -17,6 +16,7 @@ public class Account extends Observable implements IAccount {
 	public Account(IClient client,String accountNo) {
 		this.client = client;
 		this.accountNo = accountNo;
+//		this.client.addAccount(this);
 	}
 
 	public String getAccountNo() {

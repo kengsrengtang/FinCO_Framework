@@ -6,6 +6,7 @@ import edu.mum.entry.IEntry;
 public interface IAccount {
 	IClient getClient();
 	double getBalance();
+	String getAccountNo();
 	void notifyClient();
 	void deposit(IEntry entry);
 	boolean withdraw(IEntry entry);
