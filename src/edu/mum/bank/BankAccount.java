@@ -9,7 +9,7 @@ public abstract class BankAccount extends Account {
 	public BankAccount(IClient client, String accountNo) {
 		super(client, accountNo);
 	}
-	abstract void addInterest();
+	public abstract void addInterest();
 	
 	public void notifyClient(double amount) {
 		if(this.getClient().getType() == ClientType.ORGANIZATIONAL)

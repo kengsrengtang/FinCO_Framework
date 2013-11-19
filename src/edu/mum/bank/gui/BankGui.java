@@ -1,5 +1,4 @@
 package edu.mum.bank.gui;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,6 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 import main.FinCo;
+import edu.mum.bank.Bank;
 import edu.mum.gui.Gui;
 import edu.mum.gui.JDialogAddAccount;
 import edu.mum.gui.JDialogAddOrganizationAccount;
@@ -15,9 +15,12 @@ import edu.mum.gui.JDialogAddOrganizationAccount;
 public class BankGui extends Gui{
 
 	JButton btnAddInterest ;
-	
 	public BankGui(FinCo application) {
+	Bank application;
+	public BankGui(Bank application) {
+    binding addInterestToAllAccounts with backend code
 		super(application);
+		this.application = application;
 		setUpBank();
 	}
 	
@@ -53,6 +56,7 @@ public class BankGui extends Gui{
 				JOptionPane.WARNING_MESSAGE);
 		
 		//call application.addInterest();
+		application.addInterestToAllAccount();
 		loadAccounts();
 	}
 	
