@@ -25,8 +25,13 @@ import edu.mum.gui.Gui;
 public class FinCo {
 	Map<String, IAccount> accounts = new HashMap<>();
 	List<IClient> clients = new ArrayList<>();
-
+	public FinCo(){
+		setup();
+		printAccounts();
+	}
+	
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		FinCo finCo = new FinCo();
 		IClient client = ClientFactory.createPerson("Foo", "4th", "Fairfield",
 				"IA", "2222", "foo@gmail.com", new Date());
@@ -45,6 +50,8 @@ public class FinCo {
 		
 		//ui
 		
+=======
+>>>>>>> f3d35897b3f8668764fe3ff639e17489561c873a
 		try {
 		    // Add the following code if you want the Look and Feel
 		    // to be set to the Look and Feel of the native system.
@@ -56,7 +63,7 @@ public class FinCo {
 		    }
 		    
 			//Create a new instance of our application's frame, and make it visible.
-			(new Gui(finCo)).setVisible(true);
+			(new Gui(new FinCo())).setVisible(true);
 		} 
 		catch (Throwable t) {
 			t.printStackTrace();
