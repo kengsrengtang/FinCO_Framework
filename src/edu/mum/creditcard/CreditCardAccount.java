@@ -1,9 +1,11 @@
 package edu.mum.creditcard;
 
 import java.util.Date;
+import java.util.Iterator;
 
 import edu.mum.account.Account;
 import edu.mum.client.IClient;
+import edu.mum.entry.IEntry;
 
 public abstract class CreditCardAccount extends Account{
 	private double lastMonthBalance;
@@ -14,11 +16,19 @@ public abstract class CreditCardAccount extends Account{
 	}
 	
 	public double getTotalMonthlyCredit(){
-		return 0;
+		return withdrawals.size();
 	}
 	
 	public double getTotalMonthlyCharges(){
-		return 0;
+		double total = 0;
+		Iterator<IEntry> it = withdrawals.iterator();
+		Predicate<Date> condition = new CheckDate();
+		while(it.hasNext()){
+			IEntry entry = it.next();
+			if(condition.check(entry.getDate()))
+				total += it.next().getAmount();
+		}
+		return total;
 	}
 	
 	public double getLastMonthBalance() {

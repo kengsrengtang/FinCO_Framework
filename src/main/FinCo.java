@@ -101,4 +101,14 @@ public class FinCo {
 			System.out.println(acc);
 		}
 	}
+
+	public Map<String, IAccount> getAccounts() {
+		return accounts;
+	}
+
+	public List<IClient> getClients() {
+		return clients;
+	}
+	
+	
 }
