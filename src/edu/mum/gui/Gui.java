@@ -1,11 +1,19 @@
 package edu.mum.gui;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.*;
 
 import main.FinCo;
+import edu.mum.client.IClient;
 
 /**
  * A basic JFC based application.
@@ -50,6 +58,7 @@ public class Gui extends javax.swing.JFrame {
 		//JScrollPane1.setBounds(12, 92, 444, 160);
 		JScrollPane1.getViewport().add(JTable1);
 		JTable1.setBounds(0, 0, 420, 0);
+		
 	}
 
 	public void addButtonInTopPanel(JButton button) {
@@ -163,6 +172,13 @@ public class Gui extends javax.swing.JFrame {
 		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
 		if (selection >= 0) {
 			model.setValueAt(amount, selection, 4);
+		}
+	}
+	public void loadAccount(){
+		List<IClient> clients=new ArrayList<>();
+		// = application.getClients();
+		for(IClient client : clients){
+			Object[] rowData = new Object[]{client};
 		}
 	}
 	public void addAccount(Object[] rowData) {
