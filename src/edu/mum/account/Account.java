@@ -3,6 +3,8 @@ package edu.mum.account;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
+
+import edu.mum.client.ClientType;
 import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
 
@@ -29,8 +31,6 @@ public class Account extends Observable implements IAccount {
 
 	public void setBalance(double amount) {
 		this.balance = amount;
-		this.setChanged();
-		this.notifyObservers(this.balance);
 	}
 
 	@Override
@@ -39,14 +39,16 @@ public class Account extends Observable implements IAccount {
 	}
 
 	@Override
-	public void notifyClient() {
-		
+	public void notifyClient(double amount) {
+		this.setChanged();
+		this.notifyObservers(this.balance);
 	}
 
 	@Override
 	public void deposit(IEntry entry) {
 		deposits.add(entry);
 		this.setBalance(this.getBalance() + entry.getAmount());
+		notifyClient(entry.getAmount());
 	}
 
 	@Override
@@ -55,8 +57,8 @@ public class Account extends Observable implements IAccount {
 			return false;
 		}
 		this.setBalance(this.getBalance() - entry.getAmount());
-		
 		withdrawals.add(entry);
+		notifyClient(entry.getAmount());
 		return true;
 	}
 

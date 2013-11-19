@@ -5,13 +5,17 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 
 import main.FinCo;
 import edu.mum.gui.Gui;
+import edu.mum.gui.JDialogAddAccount;
+import edu.mum.gui.JDialogAddOrganizationAccount;
 
 public class BankGui extends Gui{
 
 	JButton btnAddInterest ;
+	
 	public BankGui(FinCo application) {
 		super(application);
 		setUpBank();
@@ -20,8 +24,14 @@ public class BankGui extends Gui{
 	private void setUpBank() {
 		setTitle("BankCo Application");
 		addButtons();
+		addRadioButtons();
 	}
 
+	private void addRadioButtons() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	private void addButtons() {
 		// TODO Auto-generated method stub
 		btnAddInterest = new JButton();
@@ -44,6 +54,20 @@ public class BankGui extends Gui{
 		
 		//call application.addInterest();
 		loadAccounts();
+	}
+	
+	@Override
+	protected void showDialogAddOrganizationAccount() {
+		JDialogAddAccount pac = new JDialogAddOrganizationBankAccount(this);
+		pac.setBounds(450, 20, 300, 330);
+		pac.setVisible(true);
+	};
+	
+	@Override
+	protected void showDialogAddPersonalAccount() {
+		JDialogAddAccount pac = new JDialogAddPersonalBankAccount(this);
+		pac.setBounds(450, 20, 300, 330);
+		pac.setVisible(true);
 	}
 	/**
 	 * 
