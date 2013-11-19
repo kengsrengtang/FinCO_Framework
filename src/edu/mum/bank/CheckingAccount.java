@@ -3,10 +3,9 @@ package edu.mum.bank;
 import edu.mum.client.IClient;
 
 public class CheckingAccount extends BankAccount{
-	private double interestRate;
+	static final double interestRate = 0.01;
 	public CheckingAccount(IClient client, String accountNo) {
 		super(client, accountNo);
-		this.interestRate = 0.01;
 	}
 
 	@Override
@@ -18,9 +17,5 @@ public class CheckingAccount extends BankAccount{
 
 	public double getInterestRate() {
 		return interestRate;
-	}
-
-	public void setInterestRate(double interestRate) {
-		this.interestRate = interestRate;
 	}
 }

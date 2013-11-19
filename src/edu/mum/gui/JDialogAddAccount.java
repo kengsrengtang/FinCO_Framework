@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -127,8 +128,8 @@ public abstract class JDialogAddAccount extends javax.swing.JDialog
 		getContentPane().add(BorderLayout.NORTH, topPanel);
 		getContentPane().add(BorderLayout.SOUTH, bottomPanel);
 	}
-	public void addRadioButtonOnTopPanel(JRadioButton radio){
-		topPanel.add(radio);
+	public void addComponentOnTopPanel(JComponent component){
+		topPanel.add(component);
 	}
 	abstract protected void addAccount();
 	public void addEntryField(JLabel label, JTextField textField){

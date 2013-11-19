@@ -1,10 +1,14 @@
 package edu.mum.bank;
 
+import java.util.Date;
+
 import javax.swing.UIManager;
 
 import main.FinCo;
 
 import edu.mum.bank.gui.BankGui;
+import edu.mum.client.ClientFactory;
+import edu.mum.client.IClient;
 import edu.mum.gui.Gui;
 
 public class BankCo extends FinCo{
@@ -27,5 +31,14 @@ public class BankCo extends FinCo{
 			//Ensure the application exits with an error condition.
 			System.exit(1);
 		}
+	}
+	
+	public boolean createSavingsAccountForPerson(String name,String street,String city, String state, String zip,
+				String email, Date birthDate,String accountNo, AccountType type) {
+		IClient client = ClientFactory.createPerson(name, street, city, state, zip, email, birthDate);
+		if(client != null) {
+			BankAccount bAccount = BankAccountFactory.createBankAccount(client, accountNo, type);
+		}
+		return false;
 	}
 }
