@@ -12,6 +12,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import edu.mum.util.FincoRandom;
+
 
 public abstract class JDialogAddAccount extends javax.swing.JDialog
 {
@@ -76,6 +78,8 @@ public abstract class JDialogAddAccount extends javax.swing.JDialog
 		// TODO Auto-generated method stub
 		JLabel8.setText("Acc Nr");
 		JLabel8.setForeground(java.awt.Color.black);
+		JTextField_ACNR.setEditable(false);
+		JTextField_ACNR.setText(""+FincoRandom.nextUniqueId());
 		addEntryField(JLabel8, JTextField_ACNR);
 		
 		JLabel1.setText("Name");

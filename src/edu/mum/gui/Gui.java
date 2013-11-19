@@ -1,6 +1,7 @@
 package edu.mum.gui;
 
 import java.awt.*;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 
@@ -19,7 +20,6 @@ public class Gui extends javax.swing.JFrame {
 	javax.swing.JButton JButton_CompAC = new javax.swing.JButton();
 	javax.swing.JButton JButton_Deposit = new javax.swing.JButton();
 	javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
-	javax.swing.JButton JButton_Addinterest = new javax.swing.JButton();
 	javax.swing.JButton JButton_Exit = new javax.swing.JButton();
 
 	private DefaultTableModel model;
@@ -36,9 +36,6 @@ public class Gui extends javax.swing.JFrame {
 		JButton_CompAC.setText("Add company account");
 		JButton_CompAC.setActionCommand("jbutton");
 		topPanel.add(JButton_CompAC);
-
-		JButton_Addinterest.setText("Add interest");
-		topPanel.add(JButton_Addinterest);
 	}
 
 	private void initializeCenterPanel() {
@@ -47,10 +44,10 @@ public class Gui extends javax.swing.JFrame {
 				"Email", "P/C", "Amount" });
 		JTable1 = new JTable(model);
 		centerPanel = new JPanel();
-		centerPanel.setLayout(null);
+		centerPanel.setLayout(new BorderLayout());
 		// centerPanel.setBounds(0, 0, 575, 310);
 		centerPanel.add(JScrollPane1);
-		JScrollPane1.setBounds(12, 92, 444, 160);
+		//JScrollPane1.setBounds(12, 92, 444, 160);
 		JScrollPane1.getViewport().add(JTable1);
 		JTable1.setBounds(0, 0, 420, 0);
 	}
@@ -101,7 +98,6 @@ public class Gui extends javax.swing.JFrame {
 		JButton_CompAC.addActionListener(lSymAction);
 		JButton_Deposit.addActionListener(lSymAction);
 		JButton_Withdraw.addActionListener(lSymAction);
-		JButton_Addinterest.addActionListener(lSymAction);
 		// pack();
 	}
 
@@ -148,8 +144,6 @@ public class Gui extends javax.swing.JFrame {
 				JButtonDeposit_actionPerformed(event);
 			else if (object == JButton_Withdraw)
 				JButtonWithdraw_actionPerformed(event);
-			else if (object == JButton_Addinterest)
-				JButtonAddinterest_actionPerformed(event);
 
 		}
 	}
@@ -170,9 +164,6 @@ public class Gui extends javax.swing.JFrame {
 		if (selection >= 0) {
 			model.setValueAt(amount, selection, 4);
 		}
-	}
-	private void reloadAccount(){
-		
 	}
 	public void addAccount(Object[] rowData) {
 		model.addRow(rowData);
@@ -227,13 +218,13 @@ public class Gui extends javax.swing.JFrame {
 	void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event) {
 		withdraw();
 	}
-
-	void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
-		JOptionPane.showMessageDialog(JButton_Addinterest,
-				"Add interest to all accounts", "Add interest to all accounts",
-				JOptionPane.WARNING_MESSAGE);
-		reloadAccount();
-	}
+//
+//	void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
+//		JOptionPane.showMessageDialog(JButton_Addinterest,
+//				"Add interest to all accounts", "Add interest to all accounts",
+//				JOptionPane.WARNING_MESSAGE);
+//		reloadAccount();
+//	}
 
 	public void initializeTableModelWithHeader(String[] header) {
 		model = new DefaultTableModel();
