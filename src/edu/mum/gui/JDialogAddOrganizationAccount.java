@@ -1,10 +1,7 @@
 package edu.mum.gui;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import edu.mum.client.ClientType;
@@ -31,25 +28,23 @@ public class JDialogAddOrganizationAccount extends JDialogAddAccount {
 	@Override
 	protected void addAccount() {
 		try {
-			/*
-			boolean success = parentframe.application.createAccountForClient(
+			boolean success = parentframe.application.createAccountForOrganization(
 					JTextField_NAME.getText(), JTextField_STR.getText(),
 					JTextField_CT.getText(), JTextField_ST.getText(),
 					JTextField_ZIP.getText(), JTextField_EM.getText(),
-					new SimpleDateFormat("dd/MM/YYYY", Locale.ENGLISH).parse(txtBirthDate.getText()), ClientType.PERSONAL,
+					Integer.parseInt(txtNoOfEmployee.getText()),
 					JTextField_ACNR.getText());
-			*/
-			new SimpleDateFormat("dd/MM/YYYY", Locale.ENGLISH).parse("12/12/2013");
-			boolean success =true;
+			
 			if(success){
 				Object[] rowData = new Object[] { JTextField_ACNR.getText(),
 						JTextField_NAME.getText(), JTextField_EM.getText(),
-						ClientType.PERSONAL, "0" };
+						ClientType.ORGANIZATIONAL, "0" };
 				parentframe.addAccount(rowData);
 			}
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(this, "Please enter number for number of Employee");
+//			JOptionPane.showConfirmDialog(this, "Please enter number for number of Employee");
+//			e.printStackTrace();
 		}
 	}
 

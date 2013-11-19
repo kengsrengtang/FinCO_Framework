@@ -28,8 +28,8 @@ public class FinCo {
 
 	public static void main(String[] args) {
 		FinCo finCo = new FinCo();
-		IClient client = ClientFactory.createClient("Foo", "4th", "Fairfield",
-				"IA", "2222", "foo@gmail.com", new Date(), ClientType.PERSONAL);
+		IClient client = ClientFactory.createPerson("Foo", "4th", "Fairfield",
+				"IA", "2222", "foo@gmail.com", new Date());
 		IAccount account = new Account(client, "222 5555");
 		finCo.addAccount(account);
 		System.out.print(account);
@@ -76,16 +76,16 @@ public class FinCo {
 	public void setup(){
 		//Creating clients and accounts
 		IClient[] client = new IClient[5];
-		client[0] = ClientFactory.createClient("Keng","4th", "Fairfield", "Iowa", "34242", 
-				"keng@sreng.tang", new Date(), ClientType.PERSONAL);
-		client[1] = ClientFactory.createClient("John","4th street", "Des Moines", "Iowa", "34242", 
-				"john@mail.gm", new Date(), ClientType.PERSONAL);
-		client[2] = ClientFactory.createClient("Jimmy Kon","Nevile 3rd", "Chicago", "Illinois", "367676", 
-				"kjimmy@yahoo.com", new Date(), ClientType.PERSONAL);
-		client[3] = ClientFactory.createClient("Finco Ltd","1000N 4th", "Fairfield", "Iowa", "34242", 
-				"manager@finco.com", null, ClientType.ORGANIZATIONAL);
-		client[4] = ClientFactory.createClient("Getnet Info","Burlington", "Washington DC", "Washington", "89876", 
-				"admin@getnet.info", null, ClientType.ORGANIZATIONAL);
+		client[0] = ClientFactory.createPerson("Keng","4th", "Fairfield", "Iowa", "34242", 
+				"keng@sreng.tang", new Date());
+		client[1] = ClientFactory.createPerson("John","4th street", "Des Moines", "Iowa", "34242", 
+				"john@mail.gm", new Date());
+		client[2] = ClientFactory.createPerson("Jimmy Kon","Nevile 3rd", "Chicago", "Illinois", "367676", 
+				"kjimmy@yahoo.com", new Date());
+		client[3] = ClientFactory.createOrganization("Finco Ltd","1000N 4th", "Fairfield", "Iowa", "34242", 
+				"manager@finco.com", 12);
+		client[4] = ClientFactory.createOrganization("Getnet Info","Burlington", "Washington DC", "Washington", "89876", 
+				"admin@getnet.info", 5);
 		int i=1;
 		StringBuilder prefix = new StringBuilder("2224");
 		for(IClient c:client){
@@ -97,9 +97,10 @@ public class FinCo {
 		}
 	}
 	
-	public boolean createAccountForClient(String name,String street,String city, String state, String zip,
-				String email, Date birthDate,ClientType type,String accountNo) {
-		IClient client = ClientFactory.createClient(name, street, city, state, zip, email, birthDate, type);
+	//Create personal account
+	public boolean createAccountForPerson(String name,String street,String city, String state, String zip,
+				String email, Date birthDate,String accountNo) {
+		IClient client = ClientFactory.createPerson(name, street, city, state, zip, email, birthDate);
 		if(client != null) {
 			client.addAccount(accountNo);
 			return true;
@@ -107,6 +108,16 @@ public class FinCo {
 		return false;
 	}
 	
+	//Create organizational account
+	public boolean createAccountForOrganization(String name,String street,String city, String state, String zip,
+			String email, int noOfEmployees,String accountNo) {
+			IClient client = ClientFactory.createOrganization(name, street, city, state, zip, email, noOfEmployees);
+			if(client != null) {
+				client.addAccount(accountNo);
+				return true;
+			}
+			return false;
+	}
 	
 	public void printAccounts() {
 		Set<String> accNos = accounts.keySet();
