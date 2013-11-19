@@ -1,7 +1,5 @@
 
 package edu.mum.gui;
-import java.awt.*;
-import javax.swing.*;
 
 public abstract class JDialogEntry extends javax.swing.JDialog
 {
@@ -16,7 +14,7 @@ public abstract class JDialogEntry extends javax.swing.JDialog
 
 
     protected Gui parentframe;
-    private String accnr;
+    protected String accnr;
     
 	public JDialogEntry(Gui parent, String aaccnr, String aacName)
 	{

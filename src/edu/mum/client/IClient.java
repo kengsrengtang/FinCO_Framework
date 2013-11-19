@@ -12,5 +12,8 @@ public interface IClient extends Observer{
 	void removeAccount(IAccount account);
 	void sendEmailToCustomer();
 	Address getAddress();
+	String getName();
+	String getEmail();
+	ClientType getType();
 	List<IAccount> getAccounts();
 }

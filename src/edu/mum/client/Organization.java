@@ -23,5 +23,10 @@ public class Organization extends Client implements IOrganization {
 	public void setNoOfEmployees(int noOfEmployees) {
 		this.noOfEmployees = noOfEmployees;
 	}
+
+	@Override
+	public ClientType getType() {
+		return ClientType.ORGANIZATIONAL;
+	}
 	
 }

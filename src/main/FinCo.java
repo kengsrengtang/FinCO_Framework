@@ -108,16 +108,18 @@ public class FinCo {
 	}
 	
 	//Depositing
-	public void deposit(String accountNo,double amount) {
+	public double depositing(String accountNo,double amount) {
 		//Get account
 		IAccount account = accounts.get(accountNo);
 		account.deposit(new Entry(new Date(),amount));
+		return account.getBalance();
 	}
 	
 	//Withdrawing
-	public boolean withdrawing(String accountNo,double amount) {
+	public double withdrawing(String accountNo,double amount) {
 		IAccount account = accounts.get(accountNo);
-		return account.withdraw(new Entry(new Date(),amount));
+		account.withdraw(new Entry(new Date(),amount));
+		return account.getBalance();
 	}
 	//Getters
 	public Map<String, IAccount> getAccounts() {

@@ -2,7 +2,6 @@ package edu.mum.gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BoxLayout;
@@ -13,6 +12,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import main.FinCo;
+import edu.mum.account.IAccount;
+import edu.mum.client.Address;
 import edu.mum.client.IClient;
 
 /**
@@ -55,10 +56,10 @@ public class Gui extends javax.swing.JFrame {
 		centerPanel.setLayout(new BorderLayout());
 		// centerPanel.setBounds(0, 0, 575, 310);
 		centerPanel.add(JScrollPane1);
-		//JScrollPane1.setBounds(12, 92, 444, 160);
+		// JScrollPane1.setBounds(12, 92, 444, 160);
 		JScrollPane1.getViewport().add(JTable1);
 		JTable1.setBounds(0, 0, 420, 0);
-		
+
 	}
 
 	public void addButtonInTopPanel(JButton button) {
@@ -108,6 +109,8 @@ public class Gui extends javax.swing.JFrame {
 		JButton_Deposit.addActionListener(lSymAction);
 		JButton_Withdraw.addActionListener(lSymAction);
 		// pack();
+		
+		loadAccounts();
 	}
 
 	void exitApplication() {
@@ -174,16 +177,24 @@ public class Gui extends javax.swing.JFrame {
 			model.setValueAt(amount, selection, 4);
 		}
 	}
-	public void loadAccount(){
-		List<IClient> clients=new ArrayList<>();
-		// = application.getClients();
-		for(IClient client : clients){
-			Object[] rowData = new Object[]{client};
+
+	protected void loadAccounts() {
+		List<IClient> clients = application.getClients();
+
+		for (IClient client : clients) {
+			List<IAccount> accounts = client.getAccounts();
+			for(IAccount acc:accounts) {
+				Object[] rowData = new Object[] {acc.getAccountNo(),
+						client.getName(),client.getEmail(),client.getType(),
+						acc.getBalance()};
+				addAccount(rowData);
+			}
 		}
+		
 	}
+
 	public void addAccount(Object[] rowData) {
 		model.addRow(rowData);
-		JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
 	}
 
 	void JButtonCompAC_actionPerformed(java.awt.event.ActionEvent event) {
@@ -234,13 +245,15 @@ public class Gui extends javax.swing.JFrame {
 	void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event) {
 		withdraw();
 	}
-//
-//	void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
-//		JOptionPane.showMessageDialog(JButton_Addinterest,
-//				"Add interest to all accounts", "Add interest to all accounts",
-//				JOptionPane.WARNING_MESSAGE);
-//		reloadAccount();
-//	}
+
+	//
+	// void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event)
+	// {
+	// JOptionPane.showMessageDialog(JButton_Addinterest,
+	// "Add interest to all accounts", "Add interest to all accounts",
+	// JOptionPane.WARNING_MESSAGE);
+	// reloadAccount();
+	// }
 
 	public void initializeTableModelWithHeader(String[] header) {
 		model = new DefaultTableModel();
