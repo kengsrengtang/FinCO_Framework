@@ -12,14 +12,7 @@ import javax.swing.UIManager;
 import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 import edu.mum.client.ClientFactory;
-import edu.mum.client.ClientType;
 import edu.mum.client.IClient;
-import edu.mum.entry.DepositOperation;
-import edu.mum.entry.Entry;
-import edu.mum.entry.IEntry;
-import edu.mum.entry.IOperation;
-import edu.mum.entry.OperationManager;
-import edu.mum.entry.WithdrawOperation;
 import edu.mum.gui.Gui;
 
 public class FinCo {
@@ -31,27 +24,6 @@ public class FinCo {
 	}
 	
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		FinCo finCo = new FinCo();
-		IClient client = ClientFactory.createPerson("Foo", "4th", "Fairfield",
-				"IA", "2222", "foo@gmail.com", new Date());
-		IAccount account = new Account(client, "222 5555");
-		finCo.addAccount(account);
-		System.out.print(account);
-
-		// deposit
-		IEntry entry = new Entry(new Date(), 200);
-		IOperation depositOperation = new DepositOperation(account, entry);
-		OperationManager manager = new OperationManager();
-		IOperation withDrawOperation = new WithdrawOperation(account, entry);
-		finCo.setup();
-		finCo.printAccounts();
-		
-		
-		//ui
-		
-=======
->>>>>>> f3d35897b3f8668764fe3ff639e17489561c873a
 		try {
 		    // Add the following code if you want the Look and Feel
 		    // to be set to the Look and Feel of the native system.
@@ -133,7 +105,11 @@ public class FinCo {
 			System.out.println(acc);
 		}
 	}
-
+	
+	public boolean deposit() {
+		return false;
+	}
+	//Getters
 	public Map<String, IAccount> getAccounts() {
 		return accounts;
 	}
