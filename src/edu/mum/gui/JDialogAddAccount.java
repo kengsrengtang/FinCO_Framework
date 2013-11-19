@@ -9,10 +9,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 
-public class JDialogAddAccount extends javax.swing.JDialog
+public abstract class JDialogAddAccount extends javax.swing.JDialog
 {
 	private static int textSize=20;
-    private Gui parentframe;
+    protected Gui parentframe;
   //{{DECLARE_CONTROLS
     private JPanel topPanel,centerPanel,bottomPanel;
     
@@ -122,19 +122,7 @@ public class JDialogAddAccount extends javax.swing.JDialog
 	public void addRadioButtonOnTopPanel(JRadioButton radio){
 		topPanel.add(radio);
 	}
-	protected void addAccount(){
-	       parentframe.accountnr=JTextField_ACNR.getText();
-	       parentframe.clientName=JTextField_NAME.getText();
-	       parentframe.street=JTextField_STR.getText();
-	       parentframe.city=JTextField_CT.getText();
-	       parentframe.zip=JTextField_ZIP.getText();
-	       parentframe.state=JTextField_ST.getText();
-	       if (JRadioButton_Chk.isSelected())
-	           parentframe.accountType="Ch";
-	           else
-	           parentframe.accountType="S";
-		   parentframe.newaccount=true;
-	}
+	abstract protected void addAccount();
 	public void addEntryField(JLabel label, JTextField textField){
 		JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		panel.add(label);
