@@ -17,7 +17,7 @@ public class JDialogAddOrganizationAccount extends JDialogAddAccount {
 	private void addComponents() {
 		// TODO Auto-generated method stub
 		JLabel lblNoOfEmployee = new JLabel();
-		lblNoOfEmployee.setText("No. of Employee");
+		lblNoOfEmployee.setText(" No. of Employee");
 		addEntryField(lblNoOfEmployee, txtNoOfEmployee);
 	}
 	/**

@@ -18,7 +18,7 @@ import edu.mum.util.FincoRandom;
 
 public abstract class JDialogAddAccount extends javax.swing.JDialog
 {
-	private static int textSize=20;
+	public static int textSize=20;
     protected Gui parentframe;
   //{{DECLARE_CONTROLS
     private JPanel topPanel,centerPanel,bottomPanel;

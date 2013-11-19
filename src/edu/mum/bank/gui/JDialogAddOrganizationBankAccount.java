@@ -1,12 +1,14 @@
 package edu.mum.bank.gui;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
 import edu.mum.gui.Gui;
+import edu.mum.gui.JDialogAddOrganizationAccount;
 import edu.mum.gui.JDialogAddPersonalAccount;
 
-public class JDialogAddOrganizationBankAccount extends JDialogAddPersonalAccount{
+public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAccount{
 
 	JRadioButton radioButtonChecking, radioButtonSaving;
 	public JDialogAddOrganizationBankAccount(Gui parent) {
@@ -37,6 +39,8 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddPersonalAccount
 		group.add(radioButtonChecking);
 		group.add(radioButtonSaving);
 	}
+	
+	
 	
 	@Override
 	protected void addAccount() {

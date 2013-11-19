@@ -61,14 +61,14 @@ public class BankGui extends Gui{
 	@Override
 	protected void showDialogAddOrganizationAccount() {
 		JDialogAddAccount pac = new JDialogAddOrganizationBankAccount(this);
-		pac.setBounds(450, 20, 300, 330);
+		pac.setBounds(450, 20, 300, 380);
 		pac.setVisible(true);
 	};
 	
 	@Override
 	protected void showDialogAddPersonalAccount() {
 		JDialogAddAccount pac = new JDialogAddPersonalBankAccount(this);
-		pac.setBounds(450, 20, 300, 330);
+		pac.setBounds(450, 20, 300, 380);
 		pac.setVisible(true);
 	}
 	/**

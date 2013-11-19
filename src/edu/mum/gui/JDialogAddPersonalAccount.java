@@ -22,7 +22,7 @@ public class JDialogAddPersonalAccount extends JDialogAddAccount {
 	private void addComponents() {
 		// TODO Auto-generated method stub
 		JLabel lblBirthdate = new JLabel();
-		lblBirthdate.setText("Birth Date");
+		lblBirthdate.setText(" Birth Date");
 		txtBirthDate.setText("19/20/1987");
 		addEntryField(lblBirthdate, txtBirthDate);
 	}
