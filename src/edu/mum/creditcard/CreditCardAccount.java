@@ -16,19 +16,29 @@ public abstract class CreditCardAccount extends Account{
 	}
 	
 	public double getTotalMonthlyCredit(){
-		return withdrawals.size();
-	}
-	
-	public double getTotalMonthlyCharges(){
-		double total = 0;
-		Iterator<IEntry> it = withdrawals.iterator();
+		Iterator<IEntry> it = deposits.iterator();
 		Predicate<Date> condition = new CheckDate();
+		TotalMonthlyCharge functor = new TotalMonthlyCharge();
+		
 		while(it.hasNext()){
 			IEntry entry = it.next();
 			if(condition.check(entry.getDate()))
-				total += it.next().getAmount();
+				functor.compu(entry.getAmount());
 		}
-		return total;
+		return functor.getResult();
+	}
+	
+	public double getTotalMonthlyCharges(){
+		Iterator<IEntry> it = withdrawals.iterator();
+		Predicate<Date> condition = new CheckDate();
+		TotalMonthlyCharge functor = new TotalMonthlyCharge();
+		
+		while(it.hasNext()){
+			IEntry entry = it.next();
+			if(condition.check(entry.getDate()))
+				functor.compu(entry.getAmount());
+		}
+		return functor.getResult();
 	}
 	
 	public double getLastMonthBalance() {

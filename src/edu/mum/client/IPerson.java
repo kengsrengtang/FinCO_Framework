@@ -1,5 +1,7 @@
 package edu.mum.client;
 
-public interface IPerson extends IClient {
+import java.util.Date;
 
+public interface IPerson extends IClient {
+	Date getBirthDate();
 }

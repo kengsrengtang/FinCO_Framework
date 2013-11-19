@@ -53,7 +53,7 @@ public class BankGui extends Gui{
 				JOptionPane.WARNING_MESSAGE);
 		
 		//call application.addInterest();
-		loadAccount();
+		loadAccounts();
 	}
 	
 	@Override

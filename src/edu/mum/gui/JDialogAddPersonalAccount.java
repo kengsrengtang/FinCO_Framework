@@ -18,7 +18,7 @@ public class JDialogAddPersonalAccount extends JDialogAddAccount {
 		addComponents();
 		// TODO Auto-generated constructor stub
 	}
-//test comment
+
 	private void addComponents() {
 		// TODO Auto-generated method stub
 		JLabel lblBirthdate = new JLabel();
@@ -37,11 +37,11 @@ public class JDialogAddPersonalAccount extends JDialogAddAccount {
 		// TODO Auto-generated method stub
 		try {
 			
-			boolean success = parentframe.application.createAccountForClient(
+			boolean success = parentframe.application.createAccountForPerson(
 					JTextField_NAME.getText(), JTextField_STR.getText(),
 					JTextField_CT.getText(), JTextField_ST.getText(),
 					JTextField_ZIP.getText(), JTextField_EM.getText(),
-					new SimpleDateFormat("dd/MM/YYYY", Locale.ENGLISH).parse(txtBirthDate.getText()), ClientType.PERSONAL,
+					new SimpleDateFormat("dd/MM/YYYY", Locale.ENGLISH).parse(txtBirthDate.getText()),
 					JTextField_ACNR.getText());
 			if(success){
 				Object[] rowData = new Object[] { JTextField_ACNR.getText(),

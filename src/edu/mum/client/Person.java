@@ -22,5 +22,10 @@ public class Person extends Client implements IPerson {
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	@Override
+	public ClientType getType() {
+		return ClientType.PERSONAL;
 	}	
 }
