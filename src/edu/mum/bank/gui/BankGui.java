@@ -15,10 +15,8 @@ import edu.mum.gui.JDialogAddOrganizationAccount;
 public class BankGui extends Gui{
 
 	JButton btnAddInterest ;
-	public BankGui(FinCo application) {
 	Bank application;
 	public BankGui(Bank application) {
-    binding addInterestToAllAccounts with backend code
 		super(application);
 		this.application = application;
 		setUpBank();
