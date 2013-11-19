@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Iterator;
 
 import edu.mum.account.Account;
+import edu.mum.client.ClientType;
 import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
 
@@ -54,6 +55,14 @@ public abstract class CreditCardAccount extends Account{
 		this.expDate = expDate;
 	}
 
+	@Override
+	public void notifyClient(double amount) {
+		if(this.getClient().getType() == ClientType.ORGANIZATIONAL)
+			super.notifyClient(amount);
+		if(this.getClient().getType() == ClientType.PERSONAL && amount > 400)
+			super.notifyClient(amount);
+	}
+	
 	abstract double getNewMonthlyBalance();
 	abstract double getMonthlyAmountDue();
 }

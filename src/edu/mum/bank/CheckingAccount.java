@@ -23,5 +23,4 @@ public class CheckingAccount extends BankAccount{
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
-
 }

@@ -7,7 +7,7 @@ public interface IAccount {
 	IClient getClient();
 	double getBalance();
 	String getAccountNo();
-	void notifyClient();
+	void notifyClient(double amount);
 	void deposit(IEntry entry);
 	boolean withdraw(IEntry entry);
 }
