@@ -3,24 +3,22 @@ package edu.mum.creditcard;
 import edu.mum.client.IClient;
 
 public class BronzeCreditCardAccount extends CreditCardAccount{
-	private double x,y;
+	private double mi,mp;
 	public BronzeCreditCardAccount(IClient client, String accountNo) {
 		super(client, accountNo);
-		this.x = 0.06;
-		this.y = 0.12;
+		this.mi = 0.10;
+		this.mp = 0.14;
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	double getNewMonthlyBalance() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getLastMonthBalance() - this.getTotalMonthlyCredit() + this.getTotalMonthlyCharges() + this.mi*(this.getLastMonthBalance() -this.getTotalMonthlyCredit());
 	}
 
 	@Override
 	double getMonthlyAmountDue() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.mp * this.getNewMonthlyBalance();
 	}
 
 }

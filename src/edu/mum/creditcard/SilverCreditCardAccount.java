@@ -3,23 +3,21 @@ package edu.mum.creditcard;
 import edu.mum.client.IClient;
 
 public class SilverCreditCardAccount extends CreditCardAccount{
-	private double x,y;
+	private double mi,mp;
 	public SilverCreditCardAccount(IClient client, String accountNo) {
 		super(client, accountNo);
-		x = 0.055;
-		y = 0.11;
+		this.mi = 0.08;
+		this.mp = 0.12;
 	}
 
 	@Override
 	double getNewMonthlyBalance() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getLastMonthBalance() - this.getTotalMonthlyCredit() + this.getTotalMonthlyCharges() + this.mi*(this.getLastMonthBalance() -this.getTotalMonthlyCredit());
 	}
 
 	@Override
 	double getMonthlyAmountDue() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.mp * this.getNewMonthlyBalance();
 	}
 
 }

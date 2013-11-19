@@ -3,23 +3,21 @@ package edu.mum.creditcard;
 import edu.mum.client.IClient;
 
 public class GoalCreditCardAccount extends CreditCardAccount{
-	private double x,y;
+	private double mi,mp;
 	public GoalCreditCardAccount(IClient client, String accountNo) {
 		super(client, accountNo);
-		x = 0.05;
-		y = 0.1;
+		this.mi = 0.06;
+		this.mp = 0.1;
 	}
 
 	@Override
 	double getNewMonthlyBalance() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getLastMonthBalance() - this.getTotalMonthlyCredit() + this.getTotalMonthlyCharges() + this.mi*(this.getLastMonthBalance() -this.getTotalMonthlyCredit());
 	}
 
 	@Override
 	double getMonthlyAmountDue() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.mp * this.getNewMonthlyBalance();
 	}
 
 }
