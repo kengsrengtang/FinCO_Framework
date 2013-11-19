@@ -27,6 +27,7 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddPersonalAccount
 		
 		radioButtonChecking = new JRadioButton();
 		radioButtonChecking.setText("Checkings");
+		radioButtonChecking.setSelected(true);
 		addComponentOnTopPanel(radioButtonChecking);
 		
 		radioButtonSaving = new JRadioButton();
