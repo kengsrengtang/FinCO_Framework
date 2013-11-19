@@ -9,10 +9,10 @@ import javax.swing.JTextField;
 
 import edu.mum.client.ClientType;
 
-public class JDialogAddCustomerAccount extends JDialogAddAccount {
+public class JDialogAddPersonalAccount extends JDialogAddAccount {
 	JTextField txtBirthDate = new JTextField(20);
 
-	public JDialogAddCustomerAccount(Gui parent) {
+	public JDialogAddPersonalAccount(Gui parent) {
 		super(parent);
 		setTitle("Add Customer Account");
 		addComponents();

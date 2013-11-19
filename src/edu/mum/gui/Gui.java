@@ -190,14 +190,14 @@ public class Gui extends javax.swing.JFrame {
 		showDialogAddOrganizationAccount();
 	}
 
-	private void showDialogAddPersonalAccount() {
+	protected void showDialogAddPersonalAccount() {
 		// TODO Auto-generated method stub
-		JDialogAddAccount pac = new JDialogAddCustomerAccount(this);
+		JDialogAddAccount pac = new JDialogAddPersonalAccount(this);
 		pac.setBounds(450, 20, 300, 330);
 		pac.setVisible(true);
 	}
 
-	private void showDialogAddOrganizationAccount() {
+	protected void showDialogAddOrganizationAccount() {
 		// TODO Auto-generated method stub
 		JDialogAddAccount pac = new JDialogAddOrganizationAccount(this);
 		pac.setBounds(450, 20, 300, 330);
