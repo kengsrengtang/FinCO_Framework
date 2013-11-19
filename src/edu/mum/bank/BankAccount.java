@@ -8,5 +8,5 @@ public abstract class BankAccount extends Account {
 	public BankAccount(IClient client, String accountNo) {
 		super(client, accountNo);
 	}
-	abstract void addInterest(double amount);
+	abstract void addInterest();
 }
