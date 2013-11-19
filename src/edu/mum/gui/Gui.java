@@ -180,7 +180,7 @@ public class Gui extends javax.swing.JFrame {
 
 	protected void loadAccounts() {
 		List<IClient> clients = application.getClients();
-
+		initializeTableModelWithHeader(null);
 		for (IClient client : clients) {
 			List<IAccount> accounts = client.getAccounts();
 			for(IAccount acc:accounts) {
@@ -203,7 +203,7 @@ public class Gui extends javax.swing.JFrame {
 
 	private void showDialogAddPersonalAccount() {
 		// TODO Auto-generated method stub
-		JDialogAddAccount pac = new JDialogAddCustomerAccount(this);
+		JDialogAddAccount pac = new JDialogAddPersonalAccount(this);
 		pac.setBounds(450, 20, 300, 330);
 		pac.setVisible(true);
 	}

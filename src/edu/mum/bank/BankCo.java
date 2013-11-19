@@ -1,6 +1,8 @@
-package main;
+package edu.mum.bank;
 
 import javax.swing.UIManager;
+
+import main.FinCo;
 
 import edu.mum.bank.gui.BankGui;
 import edu.mum.gui.Gui;
