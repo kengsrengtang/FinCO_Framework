@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 
+import main.FinCo;
+
 /**
  * A basic JFC based application.
  */
@@ -20,17 +22,11 @@ public class Gui extends javax.swing.JFrame {
 	javax.swing.JButton JButton_Addinterest = new javax.swing.JButton();
 	javax.swing.JButton JButton_Exit = new javax.swing.JButton();
 
-	private String[] dataHeader = { "AccountNr", "Name", "City", "P/C", "Ch/S",
-			"Amount" };
-
-	String accountnr, clientName, street, city, zip, state, accountType,
-			clientType, amountDeposit;
-	boolean newaccount;
 	private DefaultTableModel model;
 	private JTable JTable1;
 	private JScrollPane JScrollPane1;
-	Gui myframe;
 	private Object rowdata[];
+	public FinCo application;
 
 	private void initializeTopPanel() {
 		topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -50,7 +46,6 @@ public class Gui extends javax.swing.JFrame {
 		initializeTableModelWithHeader(new String[] { "A/C No.", "Name",
 				"Email", "P/C", "Amount" });
 		JTable1 = new JTable(model);
-		newaccount = false;
 		centerPanel = new JPanel();
 		centerPanel.setLayout(null);
 		// centerPanel.setBounds(0, 0, 575, 310);
@@ -82,8 +77,8 @@ public class Gui extends javax.swing.JFrame {
 		rightPanel.add(JButton_Exit);
 	}
 
-	public Gui() {
-		myframe = this;
+	public Gui(FinCo application) {
+		this.application = application;
 		setSize(590, 340);
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		setTitle("FinCo Application.");
@@ -91,7 +86,7 @@ public class Gui extends javax.swing.JFrame {
 		initializeTopPanel();
 		initializeCenterPanel();
 		initializeRightPanel();
-		
+
 		getContentPane().add(BorderLayout.CENTER, centerPanel);
 		getContentPane().add(BorderLayout.NORTH, topPanel);
 		getContentPane().add(BorderLayout.EAST, rightPanel);
@@ -166,108 +161,86 @@ public class Gui extends javax.swing.JFrame {
 	}
 
 	void JButtonPerAC_actionPerformed(java.awt.event.ActionEvent event) {
-		/*
-		 * JDialog_AddPAcc type object is for adding personal information
-		 * construct a JDialog_AddPAcc type object set the boundaries and show
-		 * it
-		 */
 
-		JDialogAddAccount pac = new JDialogAddCustomerAccount(myframe);
-		pac.setBounds(450, 20, 300, 330);
-		pac.setVisible(true);
+		showDialogAddPersonalAccount();
 	}
 
-	public void loadData(Object[] rowData) {
+	public void updateAmount(String amount) {
+		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
+		if (selection >= 0) {
+			model.setValueAt(amount, selection, 4);
+		}
+	}
+	private void reloadAccount(){
+		
+	}
+	public void addAccount(Object[] rowData) {
 		model.addRow(rowData);
 		JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
 	}
 
 	void JButtonCompAC_actionPerformed(java.awt.event.ActionEvent event) {
-		/*
-		 * construct a JDialog_AddCompAcc type object set the boundaries and
-		 * show it
-		 */
+		showDialogAddOrganizationAccount();
+	}
 
-		JDialogAddAccount pac = new JDialogAddOrganizationAccount(myframe);
+	private void showDialogAddPersonalAccount() {
+		// TODO Auto-generated method stub
+		JDialogAddAccount pac = new JDialogAddCustomerAccount(this);
 		pac.setBounds(450, 20, 300, 330);
 		pac.setVisible(true);
+	}
 
-		if (newaccount) {
-			// add row to table
-			rowdata[0] = accountnr;
-			rowdata[1] = clientName;
-			rowdata[2] = city;
-			rowdata[3] = "C";
-			rowdata[4] = accountType;
-			rowdata[5] = "0";
-			model.addRow(rowdata);
-			JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
-			newaccount = false;
-		}
-
+	private void showDialogAddOrganizationAccount() {
+		// TODO Auto-generated method stub
+		JDialogAddAccount pac = new JDialogAddOrganizationAccount(this);
+		pac.setBounds(450, 20, 300, 330);
+		pac.setVisible(true);
 	}
 
 	void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
-		JDialogEntry wd = new JDialogDeposit(myframe, "");
-		wd.setVisible(true);
+		deposit();
+	}
 
-		// get selected name
-		/*
-		 * 
-		 * int selection = JTable1.getSelectionModel().getMinSelectionIndex();
-		 * if (selection >= 0) { String accnr = (String)
-		 * model.getValueAt(selection, 0);
-		 * 
-		 * // Show the dialog for adding deposit amount for the current mane
-		 * JDialogEntry dep = new JDialogDeposit(myframe, accnr);
-		 * dep.setBounds(430, 15, 275, 140); dep.show();
-		 * 
-		 * // compute new amount long deposit = Long.parseLong(amountDeposit);
-		 * String samount = (String) model.getValueAt(selection, 5); long
-		 * currentamount = Long.parseLong(samount); long newamount =
-		 * currentamount + deposit; model.setValueAt(String.valueOf(newamount),
-		 * selection, 5); }
-		 */
+	private void deposit() {
+		// TODO Auto-generated method stub
+
+		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
+		if (selection >= 0) {
+			String accnr = (String) model.getValueAt(selection, 0);
+			String accname = (String) model.getValueAt(selection, 1);
+			JDialogEntry wd = new JDialogDeposit(this, accnr, accname);
+			wd.setVisible(true);
+		}
+	}
+
+	private void withdraw() {
+		// TODO Auto-generated method stub
+		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
+		if (selection >= 0) {
+			String accnr = (String) model.getValueAt(selection, 0);
+			String accname = (String) model.getValueAt(selection, 1);
+			JDialogEntry wd = new JDialogWithdraw(this, accnr, accname);
+			wd.setVisible(true);
+		}
 	}
 
 	void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event) {
-		// get selected name
-		JDialogEntry wd = new JDialogWithdraw(myframe, "");
-		wd.setVisible(true);
-		/*
-		 * int selection = JTable1.getSelectionModel().getMinSelectionIndex();
-		 * //if (selection >= 0) { String accnr = (String)
-		 * model.getValueAt(selection, 0);
-		 * 
-		 * // Show the dialog for adding withdraw amount for the current mane
-		 * JDialogEntry wd = new JDialogWithdraw(myframe, accnr);
-		 * wd.setBounds(430, 15, 275, 140);
-		 * 
-		 * 
-		 * // compute new amount long deposit = Long.parseLong(amountDeposit);
-		 * String samount = (String) model.getValueAt(selection, 5); long
-		 * currentamount = Long.parseLong(samount); long newamount =
-		 * currentamount - deposit; model.setValueAt(String.valueOf(newamount),
-		 * selection, 5); if (newamount < 0) {
-		 * JOptionPane.showMessageDialog(JButton_Withdraw, " Account " + accnr +
-		 * " : balance is negative: $" + String.valueOf(newamount) + " !",
-		 * "Warning: negative balance", JOptionPane.WARNING_MESSAGE); } }
-		 */
+		withdraw();
 	}
 
 	void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
 		JOptionPane.showMessageDialog(JButton_Addinterest,
 				"Add interest to all accounts", "Add interest to all accounts",
 				JOptionPane.WARNING_MESSAGE);
-
+		reloadAccount();
 	}
 
 	public void initializeTableModelWithHeader(String[] header) {
 		model = new DefaultTableModel();
-		if (header != null)
-			dataHeader = header;
-		for (String e : dataHeader) {
-			model.addColumn(e);
+		if (header != null) {
+			for (String e : header) {
+				model.addColumn(e);
+			}
 		}
 	}
 }

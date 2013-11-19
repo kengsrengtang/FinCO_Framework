@@ -15,10 +15,10 @@ public abstract class JDialogEntry extends javax.swing.JDialog
 		//}}
 
 
-    private Gui parentframe;
+    protected Gui parentframe;
     private String accnr;
     
-	public JDialogEntry(Gui parent, String aaccnr)
+	public JDialogEntry(Gui parent, String aaccnr, String aacName)
 	{
 		super(parent);
 		parentframe=parent;
@@ -34,7 +34,7 @@ public abstract class JDialogEntry extends javax.swing.JDialog
 		getContentPane().setLayout(null);
 		setSize(280,150);
 		setVisible(false);
-		JLabel1.setText("Acc Nr");
+		JLabel1.setText("Name");
 		getContentPane().add(JLabel1);
 		JLabel1.setForeground(java.awt.Color.black);
 		JLabel1.setBounds(12,12,48,24);
@@ -43,6 +43,7 @@ public abstract class JDialogEntry extends javax.swing.JDialog
 		JLabel2.setForeground(java.awt.Color.black);
 		JLabel2.setBounds(12,48,48,24);
 		JTextField_NAME.setEditable(false);
+		JTextField_NAME.setText(aacName);
 		getContentPane().add(JTextField_NAME);
 		JTextField_NAME.setBounds(84,12,144,24);
 		JButton_OK.setText("OK");
@@ -55,8 +56,6 @@ public abstract class JDialogEntry extends javax.swing.JDialog
 		JButton_Cancel.setBounds(156,84,84,24);
 		getContentPane().add(JTextField_Deposit);
 		JTextField_Deposit.setBounds(84,48,144,24);
-		//}}
-	    JTextField_NAME.setText(accnr);
 	    
 		//{{REGISTER_LISTENERS
 		SymAction lSymAction = new SymAction();

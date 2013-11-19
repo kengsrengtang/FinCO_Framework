@@ -1,12 +1,16 @@
 package edu.mum.gui;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 
 public abstract class JDialogAddAccount extends javax.swing.JDialog
@@ -124,10 +128,11 @@ public abstract class JDialogAddAccount extends javax.swing.JDialog
 	}
 	abstract protected void addAccount();
 	public void addEntryField(JLabel label, JTextField textField){
-		JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panel = new JPanel(new GridLayout(1,2,0,10));
 		panel.add(label);
 		panel.add(textField);
 		centerPanel.add(panel);
+		centerPanel.add(Box.createVerticalStrut(5));
 	}
 
 	class SymAction implements java.awt.event.ActionListener

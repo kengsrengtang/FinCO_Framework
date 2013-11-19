@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.swing.UIManager;
+
 import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 import edu.mum.client.ClientFactory;
@@ -18,6 +20,7 @@ import edu.mum.entry.IEntry;
 import edu.mum.entry.IOperation;
 import edu.mum.entry.OperationManager;
 import edu.mum.entry.WithdrawOperation;
+import edu.mum.gui.Gui;
 
 public class FinCo {
 	Map<String, IAccount> accounts = new HashMap<>();
@@ -38,6 +41,28 @@ public class FinCo {
 		IOperation withDrawOperation = new WithdrawOperation(account, entry);
 		finCo.setup();
 		finCo.printAccounts();
+		
+		
+		//ui
+		
+		try {
+		    // Add the following code if you want the Look and Feel
+		    // to be set to the Look and Feel of the native system.
+		    
+		    try {
+		        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		    } 
+		    catch (Exception e) { 
+		    }
+		    
+			//Create a new instance of our application's frame, and make it visible.
+			(new Gui(finCo)).setVisible(true);
+		} 
+		catch (Throwable t) {
+			t.printStackTrace();
+			//Ensure the application exits with an error condition.
+			System.exit(1);
+		}
 	}
 
 	public void addAccount(IAccount account) {

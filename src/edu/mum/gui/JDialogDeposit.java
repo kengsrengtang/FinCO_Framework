@@ -2,8 +2,8 @@ package edu.mum.gui;
 
 public class JDialogDeposit extends JDialogEntry{
 
-	public JDialogDeposit(Gui parent, String aaccnr) {
-		super(parent, aaccnr);
+	public JDialogDeposit(Gui parent, String aaccnr, String accName) {
+		super(parent, aaccnr,accName);
 		setTitle("Deposit");
 		// TODO Auto-generated constructor stub
 	}
@@ -16,7 +16,7 @@ public class JDialogDeposit extends JDialogEntry{
 	@Override
 	public void SumbitEntry() {
 		// TODO Auto-generated method stub
-		
+		parentframe.updateAmount(JTextField_Deposit.getText());
 	}
 
 }
