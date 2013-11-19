@@ -13,12 +13,16 @@ import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 import edu.mum.client.ClientFactory;
 import edu.mum.client.IClient;
+import edu.mum.entry.DepositOperation;
 import edu.mum.entry.Entry;
+import edu.mum.entry.OperationManager;
+import edu.mum.entry.WithdrawOperation;
 import edu.mum.gui.Gui;
 
 public class FinCo {
-	Map<String, IAccount> accounts = new HashMap<>();
-	List<IClient> clients = new ArrayList<>();
+	protected Map<String, IAccount> accounts = new HashMap<>();
+	protected List<IClient> clients = new ArrayList<>();
+	protected OperationManager opManager = new OperationManager();
 	public FinCo(){
 		setup();
 //		printAccounts();
@@ -111,14 +115,15 @@ public class FinCo {
 	public double depositing(String accountNo,double amount) {
 		//Get account
 		IAccount account = accounts.get(accountNo);
-		account.deposit(new Entry(new Date(),amount));
+		//Create deposit operation and submit it.
+		opManager.submit(new DepositOperation(account,new Entry(new Date(),amount)));
 		return account.getBalance();
 	}
 	
 	//Withdrawing
 	public double withdrawing(String accountNo,double amount) {
 		IAccount account = accounts.get(accountNo);
-		account.withdraw(new Entry(new Date(),amount));
+		opManager.submit(new WithdrawOperation(account,new Entry(new Date(),amount)));
 		return account.getBalance();
 	}
 	//Getters
