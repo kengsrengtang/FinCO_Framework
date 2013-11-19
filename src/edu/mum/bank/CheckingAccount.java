@@ -9,7 +9,7 @@ public class CheckingAccount extends BankAccount{
 	}
 
 	@Override
-	void addInterest() {
+	public void addInterest() {
 		double totalInterest;
 		totalInterest = this.getBalance() * interestRate;
 		this.setBalance(this.getBalance() + totalInterest);
