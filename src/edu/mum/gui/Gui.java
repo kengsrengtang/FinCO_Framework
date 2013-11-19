@@ -183,7 +183,7 @@ public class Gui extends javax.swing.JFrame {
 		 * it
 		 */
 
-		JDialog_AddPAcc pac = new JDialog_AddPAcc(myframe);
+		JDialogAddAccount pac = new JDialogAddAccount(myframe);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 
@@ -208,7 +208,7 @@ public class Gui extends javax.swing.JFrame {
 		 * show it
 		 */
 
-		JDialog_AddCompAcc pac = new JDialog_AddCompAcc(myframe);
+		JDialogAddAccount pac = new JDialogAddAccount(myframe);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 
@@ -228,13 +228,18 @@ public class Gui extends javax.swing.JFrame {
 	}
 
 	void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
+		JDialogEntry wd = new JDialogDeposit(myframe, "");
+		wd.setVisible(true);
+		
 		// get selected name
+		/*
+		
 		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
 		if (selection >= 0) {
 			String accnr = (String) model.getValueAt(selection, 0);
 
 			// Show the dialog for adding deposit amount for the current mane
-			JDialog_Deposit dep = new JDialog_Deposit(myframe, accnr);
+			JDialogEntry dep = new JDialogDeposit(myframe, accnr);
 			dep.setBounds(430, 15, 275, 140);
 			dep.show();
 
@@ -245,19 +250,23 @@ public class Gui extends javax.swing.JFrame {
 			long newamount = currentamount + deposit;
 			model.setValueAt(String.valueOf(newamount), selection, 5);
 		}
-
+	*/
 	}
 
 	void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event) {
 		// get selected name
+		JDialogEntry wd = new JDialogWithdraw(myframe, "");
+		wd.setVisible(true);
+		/*
 		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
-		if (selection >= 0) {
+		//if (selection >= 0) 
+		{
 			String accnr = (String) model.getValueAt(selection, 0);
 
 			// Show the dialog for adding withdraw amount for the current mane
-			JDialog_Withdraw wd = new JDialog_Withdraw(myframe, accnr);
+			JDialogEntry wd = new JDialogWithdraw(myframe, accnr);
 			wd.setBounds(430, 15, 275, 140);
-			wd.show();
+			
 
 			// compute new amount
 			long deposit = Long.parseLong(amountDeposit);
@@ -273,7 +282,7 @@ public class Gui extends javax.swing.JFrame {
 						JOptionPane.WARNING_MESSAGE);
 			}
 		}
-
+	*/
 	}
 
 	void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {

@@ -3,14 +3,22 @@ package edu.mum.gui;
 import java.awt.*;
 import javax.swing.*;
 
-public class JDialog_Deposit extends javax.swing.JDialog
+public abstract class JDialogEntry extends javax.swing.JDialog
 {
-    
+	//{{DECLARE_CONTROLS
+		javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
+		javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
+		javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
+		javax.swing.JButton JButton_OK = new javax.swing.JButton();
+		javax.swing.JButton JButton_Cancel = new javax.swing.JButton();
+		javax.swing.JTextField JTextField_Deposit = new javax.swing.JTextField();
+		//}}
+
 
     private Gui parentframe;
     private String accnr;
     
-	public JDialog_Deposit(Gui parent, String aaccnr)
+	public JDialogEntry(Gui parent, String aaccnr)
 	{
 		super(parent);
 		parentframe=parent;
@@ -24,7 +32,7 @@ public class JDialog_Deposit extends javax.swing.JDialog
 		setTitle("Deposit");
 		setModal(true);
 		getContentPane().setLayout(null);
-		setSize(268,126);
+		setSize(280,150);
 		setVisible(false);
 		JLabel1.setText("Acc Nr");
 		getContentPane().add(JLabel1);
@@ -59,15 +67,7 @@ public class JDialog_Deposit extends javax.swing.JDialog
 
 
 
-	//{{DECLARE_CONTROLS
-	javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
-	javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
-	javax.swing.JButton JButton_OK = new javax.swing.JButton();
-	javax.swing.JButton JButton_Cancel = new javax.swing.JButton();
-	javax.swing.JTextField JTextField_Deposit = new javax.swing.JTextField();
-	//}}
-
+	
 
 	class SymAction implements java.awt.event.ActionListener
 	{
@@ -83,9 +83,11 @@ public class JDialog_Deposit extends javax.swing.JDialog
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-        parentframe.amountDeposit=JTextField_Deposit.getText();
+		SumbitEntry();
         dispose();
 	}
+
+	abstract public void SumbitEntry();
 
 	void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)
 	{

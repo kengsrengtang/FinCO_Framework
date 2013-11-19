@@ -10,10 +10,10 @@ import edu.mum.gui.Gui;
 public class BankGui extends Gui{
 	public BankGui(){
 		super();
+		setTitle("Bikram and Thapa Bank");
 		JButton myButton = new JButton();
 		myButton.setText("Hello!");
 		myButton.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Hello");
