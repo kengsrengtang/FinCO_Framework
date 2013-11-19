@@ -2,6 +2,7 @@ package edu.mum.client;
 
 import java.util.ArrayList;
 
+import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 
 
@@ -54,7 +55,11 @@ public abstract class Client implements IClient{
 		this.list.add(account);
 		
 	}
-
+	@Override
+	public void addAccount(String accountNo) {
+		this.list.add(new Account(this, accountNo));
+	}
+	
 	@Override
 	public void removeAccount(IAccount account) {
 		this.list.remove(account);

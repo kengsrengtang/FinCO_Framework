@@ -17,6 +17,7 @@ public class Account extends Observable implements IAccount {
 	public Account(IClient client,String accountNo) {
 		this.client = client;
 		this.accountNo = accountNo;
+//		this.client.addAccount(this);
 	}
 
 	public String getAccountNo() {
