@@ -3,6 +3,9 @@ package edu.mum.account;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
+import java.util.Random;
+
+import com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultNode;
 
 import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
@@ -10,6 +13,7 @@ import edu.mum.entry.IEntry;
 public class Account extends Observable implements IAccount {
 	protected List<IEntry> deposits = new ArrayList<IEntry>();
 	protected List<IEntry> withdrawals = new ArrayList<IEntry>();
+	private static int defaultNo = 10000;
 	private String accountNo;
 	private double balance;
 	private IClient client;
@@ -65,5 +69,9 @@ public class Account extends Observable implements IAccount {
 	public String toString() {
 		return "Account [accountNo=" + accountNo + ", balance=" + balance
 				+ ", client=" + client + "]";
+	}
+	
+	public static int generateAccount(){
+		return defaultNo++;
 	}
 }
