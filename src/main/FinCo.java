@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import edu.mum.account.Account;
 import edu.mum.account.IAccount;
-import edu.mum.client.Client;
 import edu.mum.client.ClientFactory;
 import edu.mum.client.ClientType;
 import edu.mum.client.IClient;
@@ -31,12 +31,13 @@ public class FinCo {
 		finCo.addAccount(account);
 		System.out.print(account);
 
-		// deposite
+		// deposit
 		IEntry entry = new Entry(new Date(), 200);
 		IOperation depositOperation = new DepositOperation(account, entry);
 		OperationManager manager = new OperationManager();
 		IOperation withDrawOperation = new WithdrawOperation(account, entry);
-
+		finCo.setup();
+		finCo.printAccounts();
 	}
 
 	public void addAccount(IAccount account) {
@@ -64,8 +65,29 @@ public class FinCo {
 		StringBuilder prefix = new StringBuilder("2224");
 		for(IClient c:client){
 			this.addClient(c);
-			this.addAccount(new Account(c,prefix.append(i++).toString()));
+			IAccount acc = new Account(c,prefix.append(i++).toString());
+			c.addAccount(acc);
+			this.addAccount(acc);
 			prefix.deleteCharAt(prefix.length()-1);
+		}
+	}
+	
+	public boolean createAccountForClient(String name,String street,String city, String state, String zip,
+				String email, Date birthDate,ClientType type,String accountNo) {
+		IClient client = ClientFactory.createClient(name, street, city, state, zip, email, birthDate, type);
+		if(client != null) {
+			client.addAccount(accountNo);
+			return true;
+		}
+		return false;
+	}
+	
+	
+	public void printAccounts() {
+		Set<String> accNos = accounts.keySet();
+		for(String no:accNos) {
+			IAccount acc = accounts.get(no);
+			System.out.println(acc);
 		}
 	}
 }
