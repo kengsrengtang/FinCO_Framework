@@ -180,7 +180,6 @@ public class Gui extends javax.swing.JFrame {
 
 	protected void loadAccounts() {
 		List<IClient> clients = application.getClients();
-		initializeTableModelWithHeader(null);
 		for (IClient client : clients) {
 			List<IAccount> accounts = client.getAccounts();
 			for(IAccount acc:accounts) {
