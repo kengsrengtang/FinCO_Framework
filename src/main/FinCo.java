@@ -13,6 +13,7 @@ import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 import edu.mum.client.ClientFactory;
 import edu.mum.client.IClient;
+import edu.mum.entry.Entry;
 import edu.mum.gui.Gui;
 
 public class FinCo {
@@ -20,7 +21,7 @@ public class FinCo {
 	List<IClient> clients = new ArrayList<>();
 	public FinCo(){
 		setup();
-		printAccounts();
+//		printAccounts();
 	}
 	
 	public static void main(String[] args) {
@@ -106,8 +107,17 @@ public class FinCo {
 		}
 	}
 	
-	public boolean deposit() {
-		return false;
+	//Depositing
+	public void deposit(String accountNo,double amount) {
+		//Get account
+		IAccount account = accounts.get(accountNo);
+		account.deposit(new Entry(new Date(),amount));
+	}
+	
+	//Withdrawing
+	public boolean withdrawing(String accountNo,double amount) {
+		IAccount account = accounts.get(accountNo);
+		return account.withdraw(new Entry(new Date(),amount));
 	}
 	//Getters
 	public Map<String, IAccount> getAccounts() {
