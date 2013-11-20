@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.swing.UIManager;
 
 import main.FinCo;
-import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 import edu.mum.bank.entry.AddInterestOperation;
 import edu.mum.bank.gui.BankGui;
@@ -41,17 +40,6 @@ public class Bank extends FinCo {
 		}
 	}
 
-	public boolean createAccountForPerson(String name, String street,
-			String city, String state, String zip, String email,
-			Date birthDate, String accountNo, AccountType type) {
-		IClient client = ClientFactory.createPerson(name, street, city, state,
-				zip, email, birthDate);
-		if (client != null) {
-			BankAccount bAccount = BankAccountFactory.createBankAccount(client,
-					accountNo, type);
-		}
-		return false;
-	}
 
 	public void setup(){
 		//Creating clients and accounts
@@ -83,6 +71,7 @@ public class Bank extends FinCo {
 			prefix.deleteCharAt(prefix.length()-1);
 		}
 	}
+
 	// adding interest to all account
 	public void addInterestToAllAccount() {
 		Iterator<Map.Entry<String, IAccount>> it = accounts.entrySet()

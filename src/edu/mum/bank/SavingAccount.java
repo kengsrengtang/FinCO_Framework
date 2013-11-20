@@ -24,7 +24,7 @@ public class SavingAccount extends BankAccount{
 	@Override
 	public AccountType getType() {
 		// TODO Auto-generated method stub
-		return AccountType.Saving;
+		return AccountType.SAVING;
 	}
 
 }

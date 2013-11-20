@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.swing.UIManager;
 
 import edu.mum.account.Account;
+import edu.mum.account.AccountFactory;
 import edu.mum.account.IAccount;
 import edu.mum.client.ClientFactory;
 import edu.mum.client.IClient;
@@ -83,10 +84,11 @@ public class FinCo {
 	
 	//Create personal account
 	public boolean createAccountForPerson(String name,String street,String city, String state, String zip,
-				String email, Date birthDate,String accountNo) {
+				String email, Date birthDate,String accountNo, AccountFactory factory) {
 		IClient client = ClientFactory.createPerson(name, street, city, state, zip, email, birthDate);
 		if(client != null) {
-			client.addAccount(accountNo);
+			IAccount acc = factory.createAccount(client, accountNo);
+			client.addAccount(acc);
 			return true;
 		}
 		return false;
@@ -94,11 +96,11 @@ public class FinCo {
 	
 	//Create organizational account
 	public boolean createAccountForOrganization(String name,String street,String city, String state, String zip,
-			String email, int noOfEmployees,String accountNo) {
+			String email, int noOfEmployees,String accountNo,AccountFactory factory) {
 			IClient client = ClientFactory.createOrganization(name, street, city, state, zip, email, noOfEmployees);
 			if(client != null) {
-				client.addAccount(accountNo);
-				return true;
+				IAccount acc = factory.createAccount(client, accountNo);
+				client.addAccount(acc);
 			}
 			return false;
 	}
