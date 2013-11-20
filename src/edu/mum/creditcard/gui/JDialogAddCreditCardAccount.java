@@ -53,7 +53,7 @@ public class JDialogAddCreditCardAccount extends JDialogAddPersonalAccount {
 		
 		group.add(radioButtonGold);
 		group.add(radioButtonSilver);
-		group.add(radioButtonSilver);
+		group.add(radioButtonBronze);
 	}
 	
 	private void addExpiryDateField() {
