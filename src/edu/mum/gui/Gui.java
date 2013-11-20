@@ -28,7 +28,7 @@ public class Gui extends javax.swing.JFrame implements Observer{
 	javax.swing.JPanel topPanel, rightPanel;
 	javax.swing.JPanel centerPanel = new javax.swing.JPanel();
 	javax.swing.JButton JButton_PerAC = new javax.swing.JButton();
-	javax.swing.JButton JButton_CompAC = new javax.swing.JButton();
+	protected javax.swing.JButton JButton_CompAC = new javax.swing.JButton();
 	javax.swing.JButton JButton_Deposit = new javax.swing.JButton();
 	javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
 	javax.swing.JButton JButton_Exit = new javax.swing.JButton();

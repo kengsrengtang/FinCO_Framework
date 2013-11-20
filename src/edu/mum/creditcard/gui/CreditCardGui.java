@@ -8,22 +8,25 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import edu.mum.gui.Gui;
+import edu.mum.gui.JDialogAddAccount;
+import edu.mum.gui.JDialogAddPersonalAccount;
 import edu.mum.account.IAccount;
 import edu.mum.bank.Bank;
 import edu.mum.client.IClient;
 import edu.mum.creditcard.*;
 
 public class CreditCardGui extends Gui {
-	
+	private static final long serialVersionUID = 6897916759996642759L;
 	JButton btnGenerateMonthlyBill ;
 	CreditCardCo capplication;
 	public CreditCardGui(CreditCardCo application) {
 		super(application);
 		capplication = application;
 		setTitle("Credit Card Co Application");
+		JButton_CompAC.setVisible(false);
 		addButtons();
 		initializeAccountTable(new String[] { "CC No.", "Name",
-				"Exp Date", "Type","Balance"});
+				"Expiry Date", "Type","Balance"});
 		loadAccounts();
 	}
 	@Override
@@ -66,4 +69,13 @@ public class CreditCardGui extends Gui {
 		JDialogGenBill dialogBill = new JDialogGenBill(this, report);
 		dialogBill.setVisible(true);
 	}
+	@Override
+	protected void showDialogAddPersonalAccount() {
+		// TODO Auto-generated method stub
+		JDialogAddAccount pac = new JDialogAddCreditCardAccount(this);
+		pac.setBounds(450, 20, 320, 400);
+		pac.setVisible(true);
+	}
+	
+	
 }
