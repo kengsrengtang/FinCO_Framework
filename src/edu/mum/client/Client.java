@@ -3,6 +3,8 @@ package edu.mum.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import sun.awt.geom.AreaOp.AddOp;
+
 import edu.mum.account.Account;
 import edu.mum.account.IAccount;
 
@@ -53,7 +55,7 @@ public abstract class Client implements IClient{
 	@Override
 	public void addAccount(IAccount account) {
 		this.accountList.add(account);
-		
+		account.addAObserver(this);
 	}
 	@Override
 	public void addAccount(String accountNo) {

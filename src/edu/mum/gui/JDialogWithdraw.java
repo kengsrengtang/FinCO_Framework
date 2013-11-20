@@ -12,7 +12,7 @@ public class JDialogWithdraw extends JDialogEntry{
 	public void SumbitEntry() {
 		Double currentBalance = parentframe.getApplication().withdrawing(accnr,
 							Double.parseDouble(JTextField_Deposit.getText()));
-		parentframe.updateAmount(String.valueOf(currentBalance));
+		parentframe.loadAccounts();
 	}
 
 }

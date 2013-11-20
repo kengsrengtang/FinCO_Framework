@@ -3,6 +3,7 @@ package edu.mum.account;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
+import java.util.Observer;
 
 import edu.mum.bank.AccountType;
 import edu.mum.client.IClient;
@@ -31,13 +32,14 @@ public class Account extends Observable implements IAccount {
 
 	public void setBalance(double amount) {
 		this.balance = amount;
+		setChanged();
+		notifyObservers();
 	}
 
 	@Override
 	public double getBalance() {
 		return balance;
 	}
-
 	@Override
 	public void notifyClient(double amount) {
 		this.setChanged();
@@ -72,5 +74,11 @@ public class Account extends Observable implements IAccount {
 	public AccountType getType() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void addAObserver(Observer observer) {
+		// TODO Auto-generated method stub
+		addObserver(observer);
 	}
 }

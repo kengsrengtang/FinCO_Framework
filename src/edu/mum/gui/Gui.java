@@ -3,6 +3,8 @@ package edu.mum.gui;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -19,7 +21,7 @@ import edu.mum.client.IClient;
 /**
  * A basic JFC based application.
  */
-public class Gui extends javax.swing.JFrame {
+public class Gui extends javax.swing.JFrame implements Observer{
 	/****
 	 * init variables in the object
 	 ****/
@@ -273,5 +275,10 @@ public class Gui extends javax.swing.JFrame {
 				model.addColumn(e);
 			}
 		}
+	}
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		loadAccounts();
 	}
 }
