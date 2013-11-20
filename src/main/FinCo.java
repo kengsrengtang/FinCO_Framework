@@ -83,26 +83,27 @@ public class FinCo {
 	}
 	
 	//Create personal account
-	public boolean createAccountForPerson(String name,String street,String city, String state, String zip,
+	public IAccount createAccountForPerson(String name,String street,String city, String state, String zip,
 				String email, Date birthDate,String accountNo, AccountFactory factory) {
 		IClient client = ClientFactory.createPerson(name, street, city, state, zip, email, birthDate);
 		if(client != null) {
 			IAccount acc = factory.createAccount(client, accountNo);
 			client.addAccount(acc);
-			return true;
+			return acc;
 		}
-		return false;
+		return null;
 	}
 	
 	//Create organizational account
-	public boolean createAccountForOrganization(String name,String street,String city, String state, String zip,
+	public IAccount createAccountForOrganization(String name,String street,String city, String state, String zip,
 			String email, int noOfEmployees,String accountNo,AccountFactory factory) {
 			IClient client = ClientFactory.createOrganization(name, street, city, state, zip, email, noOfEmployees);
 			if(client != null) {
 				IAccount acc = factory.createAccount(client, accountNo);
 				client.addAccount(acc);
+				return acc;
 			}
-			return false;
+			return null;
 	}
 	
 	public void printAccounts() {

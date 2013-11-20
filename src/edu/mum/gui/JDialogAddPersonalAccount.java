@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import edu.mum.account.AccountFactory;
+import edu.mum.account.IAccount;
 import edu.mum.client.ClientType;
 
 public class JDialogAddPersonalAccount extends JDialogAddAccount {
@@ -35,18 +36,22 @@ public class JDialogAddPersonalAccount extends JDialogAddAccount {
 
 	@Override
 	protected void addAccount() {
+		AccountFactory factory = new AccountFactory();
+		addAccount(factory);
+	}
+	
+	protected void addAccount(AccountFactory factory) {
 		// TODO Auto-generated method stub
 		try {
-			AccountFactory factory = new AccountFactory();
-			boolean success = parentframe.getApplication().createAccountForPerson(
+			IAccount account = parentframe.getApplication().createAccountForPerson(
 					JTextField_NAME.getText(), JTextField_STR.getText(),
 					JTextField_CT.getText(), JTextField_ST.getText(),
 					JTextField_ZIP.getText(), JTextField_EM.getText(),
 					new SimpleDateFormat("dd/MM/YYYY", Locale.ENGLISH).parse(txtBirthDate.getText()),
 					JTextField_ACNR.getText(),factory);
-			if(success){
+			if(account != null){
 				Object[] rowData = new Object[] { JTextField_ACNR.getText(),
-						JTextField_NAME.getText(), JTextField_EM.getText(),
+						JTextField_NAME.getText(), JTextField_CT.getText(),
 						ClientType.PERSONAL, "0" };
 				parentframe.addAccount(rowData);
 			}
