@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.Iterator;
 
 import edu.mum.account.Account;
-import edu.mum.client.ClientType;
 import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
 

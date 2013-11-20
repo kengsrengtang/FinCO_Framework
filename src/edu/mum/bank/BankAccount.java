@@ -1,7 +1,6 @@
 package edu.mum.bank;
 
 import edu.mum.account.Account;
-import edu.mum.client.ClientType;
 import edu.mum.client.IClient;
 
 public abstract class BankAccount extends Account {
