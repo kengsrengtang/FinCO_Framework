@@ -15,11 +15,9 @@ import edu.mum.gui.JDialogAddAccount;
 public class BankGui extends Gui{
 
 	JButton btnAddInterest ;
-	Bank myApplication;
 	public BankGui(Bank application) {
 		super(application);
 		setUpBank();
-		myApplication = application;
 	}
 	
 	private void setUpBank() {
@@ -29,7 +27,6 @@ public class BankGui extends Gui{
 		initializeAccountTable(new String[] { "A/C No.", "Name",
 				"City", "P/C","Ch/S", "Amount" });
 		loadAccounts();
-		
 	}
 
 	private void addRadioButtons() {
@@ -58,7 +55,7 @@ public class BankGui extends Gui{
 				JOptionPane.WARNING_MESSAGE);
 		
 		//call application.addInterest();
-		myApplication.addInterestToAllAccount();
+		((Bank)application).addInterestToAllAccount();
 		loadAccounts();
 	}
 	

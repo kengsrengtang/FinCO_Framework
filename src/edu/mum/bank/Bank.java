@@ -15,9 +15,6 @@ import edu.mum.client.IClient;
 import edu.mum.entry.IOperation;
 
 public class Bank extends FinCo {
-	public Bank(){
-		setup();
-	}
 	
 	public static void main(String[] args) {
 		try {
