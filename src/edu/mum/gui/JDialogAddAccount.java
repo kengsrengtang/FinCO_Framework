@@ -1,6 +1,5 @@
 package edu.mum.gui;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -9,15 +8,14 @@ import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
 import edu.mum.util.FincoRandom;
 
 
 public abstract class JDialogAddAccount extends javax.swing.JDialog
 {
+	private static final long serialVersionUID = 1L;
 	private final static int textSize=20;
     protected Gui parentframe;
   //{{DECLARE_CONTROLS

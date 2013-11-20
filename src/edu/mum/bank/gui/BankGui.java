@@ -6,8 +6,6 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import com.sun.jndi.cosnaming.IiopUrl.Address;
-
 import edu.mum.account.IAccount;
 import edu.mum.bank.Bank;
 import edu.mum.client.IClient;

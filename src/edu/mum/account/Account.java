@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Observable;
 
 import edu.mum.bank.AccountType;
-import edu.mum.client.ClientType;
 import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
 
