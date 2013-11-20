@@ -16,7 +16,7 @@ import edu.mum.gui.JDialogAddPersonalAccount;
 
 public class JDialogAddPersonalBankAccount extends JDialogAddPersonalAccount {
 	private static final long serialVersionUID = 3923935973635002311L;
-	JRadioButton radioButtonChecking, radioButtonSaving;
+	protected JRadioButton radioButtonChecking, radioButtonSaving;
 
 	public JDialogAddPersonalBankAccount(BankGui parent) {
 		super(parent);
