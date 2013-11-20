@@ -20,7 +20,7 @@ public class CheckingAccount extends BankAccount{
 	}
 
 	@Override
-	public AccountType getType() {
+	public String getType() {
 		// TODO Auto-generated method stub
 		return AccountType.CHECKING;
 	}

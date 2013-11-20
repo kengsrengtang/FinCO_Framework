@@ -25,7 +25,7 @@ public class Person extends Client implements IPerson {
 	}
 
 	@Override
-	public ClientType getType() {
+	public String getType() {
 		return ClientType.PERSONAL;
 	}	
 }

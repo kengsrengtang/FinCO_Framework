@@ -1,6 +1,5 @@
 package edu.mum.client;
 
-public enum ClientType {
-	PERSONAL,
-	ORGANIZATIONAL,
+public class ClientType {
+	public static final String PERSONAL="PERSONAL",ORGANIZATIONAL="ORGANIZATIONAL";
 }
