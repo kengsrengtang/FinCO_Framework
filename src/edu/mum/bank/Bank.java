@@ -1,6 +1,5 @@
 package edu.mum.bank;
 
-import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -10,8 +9,6 @@ import main.FinCo;
 import edu.mum.account.IAccount;
 import edu.mum.bank.entry.AddInterestOperation;
 import edu.mum.bank.gui.BankGui;
-import edu.mum.client.ClientFactory;
-import edu.mum.client.IClient;
 import edu.mum.entry.IOperation;
 
 public class Bank extends FinCo {
@@ -35,23 +32,7 @@ public class Bank extends FinCo {
 			System.exit(1);
 		}
 	}
-<<<<<<< HEAD
 	
-=======
-
-	public boolean createAccountForPerson(String name, String street,
-			String city, String state, String zip, String email,
-			Date birthDate, String accountNo, AccountType type) {
-		IClient client = ClientFactory.createPerson(name, street, city, state,
-				zip, email, birthDate);
-		if (client != null) {
-			BankAccount bAccount = BankAccountFactory.createBankAccount(client,
-					accountNo, type);
-		}
-		return false;
-	}
-
->>>>>>> 8177f23e3340575b574a3cec5fc5a23187991392
 	// adding interest to all account
 	public void addInterestToAllAccount() {
 		Iterator<Map.Entry<String, IAccount>> it = accounts.entrySet()
