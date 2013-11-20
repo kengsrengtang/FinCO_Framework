@@ -55,13 +55,6 @@ public abstract class CreditCardAccount extends Account{
 		this.expDate = expDate;
 	}
 
-	@Override
-	public void notifyClient(double amount) {
-		if(this.getClient().getType() == ClientType.ORGANIZATIONAL)
-			super.notifyClient(amount);
-		if(this.getClient().getType() == ClientType.PERSONAL && amount > 400)
-			super.notifyClient(amount);
-	}
 	
 	abstract double getNewMonthlyBalance();
 	abstract double getMonthlyAmountDue();

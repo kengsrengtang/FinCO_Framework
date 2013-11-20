@@ -32,7 +32,7 @@ public class Account extends Observable implements IAccount {
 
 	public void setBalance(double amount) {
 		this.balance = amount;
-		setChanged();
+		this.setChanged();
 		notifyObservers();
 	}
 
@@ -40,17 +40,12 @@ public class Account extends Observable implements IAccount {
 	public double getBalance() {
 		return balance;
 	}
-	@Override
-	public void notifyClient(double amount) {
-		this.setChanged();
-		this.notifyObservers(this.balance);
-	}
 
 	@Override
 	public void deposit(IEntry entry) {
 		deposits.add(entry);
 		this.setBalance(this.getBalance() + entry.getAmount());
-		notifyClient(entry.getAmount());
+		
 	}
 
 	@Override
@@ -60,7 +55,6 @@ public class Account extends Observable implements IAccount {
 		}
 		this.setBalance(this.getBalance() - entry.getAmount());
 		withdrawals.add(entry);
-		notifyClient(entry.getAmount());
 		return true;
 	}
 
