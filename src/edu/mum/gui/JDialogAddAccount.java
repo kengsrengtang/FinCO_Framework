@@ -77,33 +77,33 @@ public abstract class JDialogAddAccount extends javax.swing.JDialog
 	}
 	private void setEntryFields() {
 		// TODO Auto-generated method stub
-		JLabel8.setText("Acc Nr");
+		JLabel8.setText(" Acc Nr");
 		JLabel8.setForeground(java.awt.Color.black);
 		JTextField_ACNR.setEditable(false);
 		JTextField_ACNR.setText(""+FincoRandom.nextUniqueId());
 		addEntryField(JLabel8, JTextField_ACNR);
 		
-		JLabel1.setText("Name");
+		JLabel1.setText(" Name");
 		JLabel1.setForeground(java.awt.Color.black);
 		addEntryField(JLabel1, JTextField_NAME);
 		
-		JLabel2.setText("Street");
+		JLabel2.setText(" Street");
 		JLabel2.setForeground(java.awt.Color.black);
 		addEntryField(JLabel2, JTextField_STR);
 		
-		JLabel3.setText("City");
+		JLabel3.setText(" City");
 		JLabel3.setForeground(java.awt.Color.black);
 		addEntryField(JLabel3, JTextField_CT);
 		
-		JLabel4.setText("State");
+		JLabel4.setText(" State");
 		JLabel4.setForeground(java.awt.Color.black);
 		addEntryField(JLabel4, JTextField_ST);
 		
-		JLabel5.setText("Zip");
+		JLabel5.setText(" Zip");
 		JLabel5.setForeground(java.awt.Color.black);
 		addEntryField(JLabel5, JTextField_ZIP);
 		
-		JLabel7.setText("Email");
+		JLabel7.setText(" Email");
 		JLabel7.setForeground(java.awt.Color.black);
 		addEntryField(JLabel7, JTextField_EM);
 	}

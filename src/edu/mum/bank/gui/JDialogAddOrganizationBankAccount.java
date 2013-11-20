@@ -1,19 +1,13 @@
 package edu.mum.bank.gui;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 import edu.mum.account.AccountFactory;
 import edu.mum.bank.CheckingAccountFactory;
 import edu.mum.bank.SavingAccountFactory;
-import edu.mum.client.ClientType;
 import edu.mum.gui.Gui;
 import edu.mum.gui.JDialogAddOrganizationAccount;
-import edu.mum.gui.JDialogAddPersonalAccount;
 
 public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAccount{
 	private static final long serialVersionUID = 3923935973635002311L;
@@ -37,6 +31,7 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAcc
 		
 		radioButtonChecking = new JRadioButton();
 		radioButtonChecking.setText("Checkings");
+		radioButtonChecking.setSelected(true);
 		addComponentOnTopPanel(radioButtonChecking);
 		
 		radioButtonSaving = new JRadioButton();
@@ -46,6 +41,8 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAcc
 		group.add(radioButtonChecking);
 		group.add(radioButtonSaving);
 	}
+	
+	
 	
 	@Override
 	protected void addAccount() {
