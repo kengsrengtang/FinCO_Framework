@@ -55,4 +55,5 @@ public class JDialogAddPersonalAccount extends JDialogAddAccount {
 			e.printStackTrace();
 		}
 	}
+	
 }

@@ -1,11 +1,13 @@
 package edu.mum.bank.gui;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 import edu.mum.account.AccountFactory;
 import edu.mum.bank.CheckingAccountFactory;
 import edu.mum.bank.SavingAccountFactory;
+import edu.mum.client.ClientType;
 import edu.mum.gui.Gui;
 import edu.mum.gui.JDialogAddOrganizationAccount;
 
@@ -52,6 +54,25 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAcc
 		} else if (radioButtonSaving.isSelected()) {
 			factory = new SavingAccountFactory();
 		}
-		super.addAccount();
+		try {
+			boolean success = parentframe.getApplication()
+					.createAccountForOrganization(JTextField_NAME.getText(),
+							JTextField_STR.getText(), JTextField_CT.getText(),
+							JTextField_ST.getText(), JTextField_ZIP.getText(),
+							JTextField_EM.getText(),
+							Integer.parseInt(txtNoOfEmployee.getText()),
+							JTextField_ACNR.getText(), factory);
+
+			if (success) {
+				Object[] rowData = new Object[] { JTextField_ACNR.getText(),
+						JTextField_NAME.getText(), JTextField_EM.getText(),
+						ClientType.ORGANIZATIONAL, "0" };
+				parentframe.addAccount(rowData);
+			}
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(this,
+					"Please enter number for number of Employee");
+			 e.printStackTrace();
+		}
 	}
 }
