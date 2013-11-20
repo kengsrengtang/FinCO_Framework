@@ -22,7 +22,7 @@ public class SavingAccount extends BankAccount{
 	}
 
 	@Override
-	public AccountType getType() {
+	public String getType() {
 		// TODO Auto-generated method stub
 		return AccountType.SAVING;
 	}

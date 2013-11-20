@@ -1,5 +1,6 @@
 package edu.mum.creditcard;
 
+import edu.mum.bank.AccountType;
 import edu.mum.client.IClient;
 
 public class BronzeCreditCardAccount extends CreditCardAccount{
@@ -20,5 +21,9 @@ public class BronzeCreditCardAccount extends CreditCardAccount{
 	double getMonthlyAmountDue() {
 		return this.mp * this.getNewMonthlyBalance();
 	}
-
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return CreditCardType.BRONZE;
+	}
 }

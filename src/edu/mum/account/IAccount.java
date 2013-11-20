@@ -12,6 +12,6 @@ public interface IAccount {
 	String getAccountNo();
 	void deposit(IEntry entry);
 	boolean withdraw(IEntry entry);
-	AccountType getType();
+	String getType();
 	void addAObserver(Observer observer);
 }

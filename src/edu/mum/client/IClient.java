@@ -14,6 +14,6 @@ public interface IClient extends Observer{
 	Address getAddress();
 	String getName();
 	String getEmail();
-	ClientType getType();
+	String getType();
 	List<IAccount> getAccounts();
 }

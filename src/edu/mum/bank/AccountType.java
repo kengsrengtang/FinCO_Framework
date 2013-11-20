@@ -1,6 +1,6 @@
 package edu.mum.bank;
 
-public enum AccountType {
-	CHECKING,
-	SAVING,
+public class AccountType {
+	public static final String CHECKING="String",
+	SAVING="SAVING";
 }

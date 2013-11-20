@@ -19,5 +19,9 @@ public class GoalCreditCardAccount extends CreditCardAccount{
 	double getMonthlyAmountDue() {
 		return this.mp * this.getNewMonthlyBalance();
 	}
-
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return CreditCardType.GOLD;
+	}
 }

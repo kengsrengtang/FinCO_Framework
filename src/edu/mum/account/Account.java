@@ -65,7 +65,7 @@ public class Account extends Observable implements IAccount {
 	}
 
 	@Override
-	public AccountType getType() {
+	public String getType() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,5 +1,7 @@
 package edu.mum.client;
 
+import java.text.Format;
+
 public class Address {
 	private String street;
 	private String city;
@@ -29,5 +31,8 @@ public class Address {
 	public String getZip() {
 		return zip;
 	}
-
+	@Override
+	public String toString(){
+		return String.format("%s, %s, %s, %s",street, city, state, zip);
+	}
 }

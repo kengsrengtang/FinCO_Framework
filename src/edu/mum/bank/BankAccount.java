@@ -11,5 +11,5 @@ public abstract class BankAccount extends Account {
 	public abstract void addInterest();
 	
 	
-	abstract public AccountType getType();
+	abstract public String getType();
 }

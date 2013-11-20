@@ -25,7 +25,7 @@ public class Organization extends Client implements IOrganization {
 	}
 
 	@Override
-	public ClientType getType() {
+	public String getType() {
 		return ClientType.ORGANIZATIONAL;
 	}
 	
