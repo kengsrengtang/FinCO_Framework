@@ -35,8 +35,12 @@ public class Gui extends javax.swing.JFrame {
 	private JTable JTable1;
 	private JScrollPane JScrollPane1;
 	private Object rowdata[];
-	public FinCo application;
-
+	private FinCo application;
+	
+	//Application getter
+	public FinCo getApplication() {
+		return application;
+	}
 	private void initializeTopPanel() {
 		topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JButton_PerAC.setText("Add personal account");

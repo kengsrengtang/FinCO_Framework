@@ -7,14 +7,15 @@ import java.util.Locale;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import edu.mum.account.AccountFactory;
 import edu.mum.client.ClientType;
 
 public class JDialogAddPersonalAccount extends JDialogAddAccount {
-	JTextField txtBirthDate = new JTextField(20);
+	protected JTextField txtBirthDate = new JTextField(20);
 
 	public JDialogAddPersonalAccount(Gui parent) {
 		super(parent);
-		setTitle("Add Customer Account");
+		setTitle("Add Client Account");
 		addComponents();
 		// TODO Auto-generated constructor stub
 	}
@@ -36,13 +37,13 @@ public class JDialogAddPersonalAccount extends JDialogAddAccount {
 	protected void addAccount() {
 		// TODO Auto-generated method stub
 		try {
-			
-			boolean success = parentframe.application.createAccountForPerson(
+			AccountFactory factory = new AccountFactory();
+			boolean success = parentframe.getApplication().createAccountForPerson(
 					JTextField_NAME.getText(), JTextField_STR.getText(),
 					JTextField_CT.getText(), JTextField_ST.getText(),
 					JTextField_ZIP.getText(), JTextField_EM.getText(),
 					new SimpleDateFormat("dd/MM/YYYY", Locale.ENGLISH).parse(txtBirthDate.getText()),
-					JTextField_ACNR.getText());
+					JTextField_ACNR.getText(),factory);
 			if(success){
 				Object[] rowData = new Object[] { JTextField_ACNR.getText(),
 						JTextField_NAME.getText(), JTextField_EM.getText(),

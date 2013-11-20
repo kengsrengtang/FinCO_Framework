@@ -18,32 +18,32 @@ import edu.mum.util.FincoRandom;
 
 public abstract class JDialogAddAccount extends javax.swing.JDialog
 {
-	private static int textSize=20;
+	private final static int textSize=20;
     protected Gui parentframe;
   //{{DECLARE_CONTROLS
     private JPanel topPanel,centerPanel,bottomPanel;
     
-  	javax.swing.JRadioButton JRadioButton_Chk = new javax.swing.JRadioButton();
-  	javax.swing.JRadioButton JRadioButton_Sav = new javax.swing.JRadioButton();
-  	javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
-  	javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
-  	javax.swing.JLabel JLabel3 = new javax.swing.JLabel();
-  	javax.swing.JLabel JLabel4 = new javax.swing.JLabel();
-  	javax.swing.JLabel JLabel5 = new javax.swing.JLabel();
-  	javax.swing.JLabel JLabel6 = new javax.swing.JLabel();
-  	javax.swing.JLabel JLabel7 = new javax.swing.JLabel();
-  	javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField(textSize);
-  	javax.swing.JTextField JTextField_CT = new javax.swing.JTextField(textSize);
-  	javax.swing.JTextField JTextField_ST = new javax.swing.JTextField(textSize);
-  	javax.swing.JTextField JTextField_STR = new javax.swing.JTextField(textSize);
-  	javax.swing.JTextField JTextField_ZIP = new javax.swing.JTextField(textSize);
-  	javax.swing.JTextField JTextField_NoOfEmp = new javax.swing.JTextField(textSize);
-  	javax.swing.JTextField JTextField_EM = new javax.swing.JTextField(textSize);
+  	protected javax.swing.JRadioButton JRadioButton_Chk = new javax.swing.JRadioButton();
+  	protected javax.swing.JRadioButton JRadioButton_Sav = new javax.swing.JRadioButton();
+  	protected javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
+  	protected javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
+  	protected javax.swing.JLabel JLabel3 = new javax.swing.JLabel();
+  	protected javax.swing.JLabel JLabel4 = new javax.swing.JLabel();
+  	protected javax.swing.JLabel JLabel5 = new javax.swing.JLabel();
+  	protected javax.swing.JLabel JLabel6 = new javax.swing.JLabel();
+  	protected javax.swing.JLabel JLabel7 = new javax.swing.JLabel();
+  	protected javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField(textSize);
+  	protected javax.swing.JTextField JTextField_CT = new javax.swing.JTextField(textSize);
+  	protected javax.swing.JTextField JTextField_ST = new javax.swing.JTextField(textSize);
+  	protected javax.swing.JTextField JTextField_STR = new javax.swing.JTextField(textSize);
+  	protected javax.swing.JTextField JTextField_ZIP = new javax.swing.JTextField(textSize);
+  	protected javax.swing.JTextField JTextField_NoOfEmp = new javax.swing.JTextField(textSize);
+  	protected javax.swing.JTextField JTextField_EM = new javax.swing.JTextField(textSize);
   	
-  	javax.swing.JButton JButton_OK = new javax.swing.JButton();
-  	javax.swing.JButton JButton_Calcel = new javax.swing.JButton();
-  	javax.swing.JLabel JLabel8 = new javax.swing.JLabel();
-  	javax.swing.JTextField JTextField_ACNR = new javax.swing.JTextField(textSize);
+  	protected javax.swing.JButton JButton_OK = new javax.swing.JButton();
+  	protected javax.swing.JButton JButton_Calcel = new javax.swing.JButton();
+  	protected javax.swing.JLabel JLabel8 = new javax.swing.JLabel();
+  	protected javax.swing.JTextField JTextField_ACNR = new javax.swing.JTextField(textSize);
   	//}}
 	public JDialogAddAccount(Gui parent)
 	{

@@ -15,11 +15,15 @@ import edu.mum.gui.JDialogAddOrganizationAccount;
 public class BankGui extends Gui{
 
 	JButton btnAddInterest ;
-	Bank application;
+	private Bank application;
 	public BankGui(Bank application) {
 		super(application);
 		this.application = application;
 		setUpBank();
+	}
+	
+	public Bank getApplication() {
+		return application;
 	}
 	
 	private void setUpBank() {

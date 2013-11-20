@@ -36,15 +36,6 @@ public class Bank extends FinCo{
 		}
 	}
 	
-	public boolean createAccountForPerson(String name,String street,String city, String state, String zip,
-				String email, Date birthDate,String accountNo, AccountType type) {
-		IClient client = ClientFactory.createPerson(name, street, city, state, zip, email, birthDate);
-		if(client != null) {
-			BankAccount bAccount = BankAccountFactory.createBankAccount(client, accountNo, type);
-		}
-		return false;
-	}
-	
 	// adding interest to all account
 		public void addInterestToAllAccount(){
 			Iterator<Map.Entry<String, IAccount>> it = accounts.entrySet().iterator();
