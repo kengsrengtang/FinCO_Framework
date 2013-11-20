@@ -70,7 +70,7 @@ public class JDialogAddPersonalBankAccount extends JDialogAddPersonalAccount {
 			if (account != null) {
 				Object[] rowData = new Object[] { JTextField_ACNR.getText(),
 					JTextField_NAME.getText(), JTextField_CT.getText(),
-					ClientType.ORGANIZATIONAL, account.getType(),account.getBalance() };
+					ClientType.PERSONAL, account.getType(),account.getBalance() };
 				parentframe.addAccount(rowData);
 				parentframe.getApplication().addAccountToList(account);
 			}
