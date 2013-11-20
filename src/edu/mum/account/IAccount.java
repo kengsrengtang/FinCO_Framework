@@ -10,7 +10,6 @@ public interface IAccount {
 	IClient getClient();
 	double getBalance();
 	String getAccountNo();
-	void notifyClient(double amount);
 	void deposit(IEntry entry);
 	boolean withdraw(IEntry entry);
 	AccountType getType();

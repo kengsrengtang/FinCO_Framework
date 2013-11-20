@@ -11,11 +11,6 @@ public abstract class BankAccount extends Account {
 	}
 	public abstract void addInterest();
 	
-	public void notifyClient(double amount) {
-		if(this.getClient().getType() == ClientType.ORGANIZATIONAL)
-			super.notifyClient(amount);
-		if(this.getClient().getType() == ClientType.PERSONAL && amount > 500)
-			super.notifyClient(amount);
-	}
+	
 	abstract public AccountType getType();
 }
