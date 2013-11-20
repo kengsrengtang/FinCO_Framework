@@ -8,6 +8,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 import edu.mum.account.AccountFactory;
+import edu.mum.bank.BankAccount;
 import edu.mum.bank.CheckingAccountFactory;
 import edu.mum.bank.SavingAccountFactory;
 import edu.mum.client.ClientType;
@@ -39,7 +40,7 @@ public class JDialogAddPersonalBankAccount extends JDialogAddPersonalAccount {
 		addComponentOnTopPanel(radioButtonChecking);
 
 		radioButtonSaving = new JRadioButton();
-		radioButtonSaving.setText("Checkings");
+		radioButtonSaving.setText("Savings");
 		addComponentOnTopPanel(radioButtonSaving);
 
 		group.add(radioButtonChecking);
@@ -56,7 +57,7 @@ public class JDialogAddPersonalBankAccount extends JDialogAddPersonalAccount {
 		}
 		try {
 
-			boolean success = parentframe.getApplication()
+			BankAccount account = (BankAccount) parentframe.getApplication()
 					.createAccountForPerson(
 							JTextField_NAME.getText(),
 							JTextField_STR.getText(),
@@ -67,10 +68,10 @@ public class JDialogAddPersonalBankAccount extends JDialogAddPersonalAccount {
 							new SimpleDateFormat("dd/MM/YYYY", Locale.ENGLISH)
 									.parse(txtBirthDate.getText()),
 							JTextField_ACNR.getText(),factory);
-			if (success) {
+			if (account != null) {
 				Object[] rowData = new Object[] { JTextField_ACNR.getText(),
-						JTextField_NAME.getText(), JTextField_EM.getText(),
-						ClientType.PERSONAL, "0" };
+					JTextField_NAME.getText(), JTextField_CT.getText(),
+					ClientType.ORGANIZATIONAL, account.getType(),account.getBalance() };
 				parentframe.addAccount(rowData);
 			}
 		} catch (ParseException e) {

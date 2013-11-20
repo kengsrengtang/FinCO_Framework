@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.swing.UIManager;
 
 import main.FinCo;
+import edu.mum.account.AccountFactory;
 import edu.mum.account.IAccount;
 import edu.mum.bank.entry.AddInterestOperation;
 import edu.mum.bank.gui.BankGui;
@@ -80,4 +81,23 @@ public class Bank extends FinCo {
 			this.opManager.submit(addInterestOperation);
 		}
 	}
+
+	@Override
+	public BankAccount createAccountForPerson(String name, String street,
+			String city, String state, String zip, String email,
+			Date birthDate, String accountNo, AccountFactory factory) {
+		// TODO Auto-generated method stub
+		return (BankAccount)super.createAccountForPerson(name, street, city, state, zip, email,
+				birthDate, accountNo, factory);
+	}
+
+	@Override
+	public BankAccount createAccountForOrganization(String name, String street,
+			String city, String state, String zip, String email,
+			int noOfEmployees, String accountNo, AccountFactory factory) {
+		return (BankAccount)super.createAccountForOrganization(name, street, city, state, zip,
+				email, noOfEmployees, accountNo, factory);
+	}
+	
+	
 }

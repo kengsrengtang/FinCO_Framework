@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 import edu.mum.account.AccountFactory;
+import edu.mum.bank.BankAccount;
 import edu.mum.bank.CheckingAccountFactory;
 import edu.mum.bank.SavingAccountFactory;
 import edu.mum.client.ClientType;
@@ -37,7 +38,7 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAcc
 		addComponentOnTopPanel(radioButtonChecking);
 		
 		radioButtonSaving = new JRadioButton();
-		radioButtonSaving.setText("Checkings");
+		radioButtonSaving.setText("Savings");
 		addComponentOnTopPanel(radioButtonSaving);
 		
 		group.add(radioButtonChecking);
@@ -55,7 +56,7 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAcc
 			factory = new SavingAccountFactory();
 		}
 		try {
-			boolean success = parentframe.getApplication()
+			BankAccount account = (BankAccount) parentframe.getApplication()
 					.createAccountForOrganization(JTextField_NAME.getText(),
 							JTextField_STR.getText(), JTextField_CT.getText(),
 							JTextField_ST.getText(), JTextField_ZIP.getText(),
@@ -63,10 +64,10 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAcc
 							Integer.parseInt(txtNoOfEmployee.getText()),
 							JTextField_ACNR.getText(), factory);
 
-			if (success) {
+			if (account != null) {
 				Object[] rowData = new Object[] { JTextField_ACNR.getText(),
-						JTextField_NAME.getText(), JTextField_EM.getText(),
-						ClientType.ORGANIZATIONAL, "0" };
+						JTextField_NAME.getText(), JTextField_CT.getText(),
+						ClientType.ORGANIZATIONAL, account.getType(),account.getBalance() };
 				parentframe.addAccount(rowData);
 			}
 		} catch (NumberFormatException e) {
