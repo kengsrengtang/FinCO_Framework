@@ -49,19 +49,24 @@ public class Gui extends javax.swing.JFrame {
 
 	private void initializeCenterPanel() {
 		JScrollPane1 = new JScrollPane();
-		initializeTableModelWithHeader(new String[] { "A/C No.", "Name",
-				"Email", "P/C", "Amount" });
-		JTable1 = new JTable(model);
+//		initializeTableModelWithHeader(new String[] { "A/C No.", "Name",
+//				"Email", "P/C", "Amount" });
+//		JTable1 = new JTable(model);
 		centerPanel = new JPanel();
 		centerPanel.setLayout(new BorderLayout());
 		// centerPanel.setBounds(0, 0, 575, 310);
 		centerPanel.add(JScrollPane1);
 		// JScrollPane1.setBounds(12, 92, 444, 160);
-		JScrollPane1.getViewport().add(JTable1);
-		JTable1.setBounds(0, 0, 420, 0);
-
+//		JScrollPane1.getViewport().add(JTable1);
+		//JTable1.setBounds(0, 0, 420, 0);
+		initializeAccountTable(new String[] { "A/C No.", "Name",
+				"Email", "P/C", "Amount" });
 	}
-
+	protected void initializeAccountTable(String[] headers){
+		initializeTableModelWithHeader(headers);
+		JTable1 = new JTable(model);
+		JScrollPane1.getViewport().add(JTable1);
+	}
 	public void addButtonInTopPanel(JButton button) {
 		topPanel.add(button);
 	}

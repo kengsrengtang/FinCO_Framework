@@ -18,4 +18,10 @@ public class CheckingAccount extends BankAccount{
 	public double getInterestRate() {
 		return interestRate;
 	}
+
+	@Override
+	public AccountType getType() {
+		// TODO Auto-generated method stub
+		return AccountType.Checking;
+	}
 }

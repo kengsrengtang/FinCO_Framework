@@ -17,4 +17,5 @@ public abstract class BankAccount extends Account {
 		if(this.getClient().getType() == ClientType.PERSONAL && amount > 500)
 			super.notifyClient(amount);
 	}
+	abstract public AccountType getType();
 }

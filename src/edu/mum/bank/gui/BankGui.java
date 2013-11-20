@@ -1,16 +1,18 @@
 package edu.mum.bank.gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
 
-import main.FinCo;
+import com.sun.jndi.cosnaming.IiopUrl.Address;
+
+import edu.mum.account.IAccount;
 import edu.mum.bank.Bank;
+import edu.mum.client.IClient;
 import edu.mum.gui.Gui;
 import edu.mum.gui.JDialogAddAccount;
-import edu.mum.gui.JDialogAddOrganizationAccount;
 
 public class BankGui extends Gui{
 
@@ -26,6 +28,10 @@ public class BankGui extends Gui{
 		setTitle("BankCo Application");
 		addButtons();
 		addRadioButtons();
+		initializeAccountTable(new String[] { "A/C No.", "Name",
+				"City", "P/C","Ch/S", "Amount" });
+		loadAccounts();
+		
 	}
 
 	private void addRadioButtons() {
@@ -56,6 +62,23 @@ public class BankGui extends Gui{
 		//call application.addInterest();
 		application.addInterestToAllAccount();
 		loadAccounts();
+	}
+	
+	@Override
+	protected void loadAccounts() {
+		List<IClient> clients = application.getClients();
+		
+		for (IClient client : clients) {
+		    edu.mum.client.Address address = client.getAddress();
+			List<IAccount> accounts = client.getAccounts();
+			for(IAccount acc:accounts) {
+				Object[] rowData = new Object[] {acc.getAccountNo(),
+						client.getName(),address.getCity(),client.getType(),
+						acc.getType(), acc.getBalance()};
+				addAccount(rowData);
+			}
+		}
+		
 	}
 	
 	@Override

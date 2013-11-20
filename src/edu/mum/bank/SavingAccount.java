@@ -21,4 +21,10 @@ public class SavingAccount extends BankAccount{
 		this.setBalance(this.getBalance() + totalInterest);
 	}
 
+	@Override
+	public AccountType getType() {
+		// TODO Auto-generated method stub
+		return AccountType.Saving;
+	}
+
 }

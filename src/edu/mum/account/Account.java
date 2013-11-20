@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
+import edu.mum.bank.AccountType;
 import edu.mum.client.ClientType;
 import edu.mum.client.IClient;
 import edu.mum.entry.IEntry;
@@ -66,5 +67,11 @@ public class Account extends Observable implements IAccount {
 	public String toString() {
 		return "Account [accountNo=" + accountNo + ", balance=" + balance
 				+ ", client=" + client + "]";
+	}
+
+	@Override
+	public AccountType getType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
