@@ -6,7 +6,7 @@ public class GoldCCFactory extends CreditCardFactory {
 
 	@Override
 	public CreditCardAccount createAccount(IClient client, String accountNo) {
-		return new GoalCreditCardAccount(client, accountNo);
+		return new GoldCreditCardAccount(client, accountNo);
 	}
 
 }

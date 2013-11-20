@@ -2,9 +2,9 @@ package edu.mum.creditcard;
 
 import edu.mum.client.IClient;
 
-public class GoalCreditCardAccount extends CreditCardAccount{
+public class GoldCreditCardAccount extends CreditCardAccount{
 	private double mi,mp;
-	public GoalCreditCardAccount(IClient client, String accountNo) {
+	public GoldCreditCardAccount(IClient client, String accountNo) {
 		super(client, accountNo);
 		this.mi = 0.06;
 		this.mp = 0.1;

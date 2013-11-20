@@ -79,7 +79,7 @@ public class CreditCardCo extends FinCo {
 				acc = new BronzeCreditCardAccount(c,prefix.append(i++).toString());
 			}
 			else{
-				acc = new GoalCreditCardAccount(c,prefix.append(i++).toString());
+				acc = new GoldCreditCardAccount(c,prefix.append(i++).toString());
 			}
 			c.addAccount(acc);
 			this.addAccountToList(acc);
