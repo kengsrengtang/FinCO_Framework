@@ -51,6 +51,7 @@ public class JDialogAddOrganizationAccount extends JDialogAddAccount {
 						JTextField_NAME.getText(), JTextField_EM.getText(),
 						ClientType.ORGANIZATIONAL, "0" };
 				parentframe.addAccount(rowData);
+				parentframe.getApplication().addAccountToList(account);
 			}
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(this,

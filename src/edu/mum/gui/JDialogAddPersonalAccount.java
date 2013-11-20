@@ -41,7 +41,6 @@ public class JDialogAddPersonalAccount extends JDialogAddAccount {
 	}
 	
 	protected void addAccount(AccountFactory factory) {
-		// TODO Auto-generated method stub
 		try {
 			IAccount account = parentframe.getApplication().createAccountForPerson(
 					JTextField_NAME.getText(), JTextField_STR.getText(),
@@ -54,6 +53,7 @@ public class JDialogAddPersonalAccount extends JDialogAddAccount {
 						JTextField_NAME.getText(), JTextField_CT.getText(),
 						ClientType.PERSONAL, "0" };
 				parentframe.addAccount(rowData);
+				parentframe.getApplication().addAccountToList(account);
 			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

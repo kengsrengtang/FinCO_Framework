@@ -45,8 +45,6 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAcc
 		group.add(radioButtonSaving);
 	}
 	
-	
-	
 	@Override
 	protected void addAccount() {
 		AccountFactory factory = new AccountFactory();
@@ -69,6 +67,7 @@ public class JDialogAddOrganizationBankAccount extends JDialogAddOrganizationAcc
 						JTextField_NAME.getText(), JTextField_CT.getText(),
 						ClientType.ORGANIZATIONAL, account.getType(),account.getBalance() };
 				parentframe.addAccount(rowData);
+				parentframe.getApplication().addAccountToList(account);
 			}
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(this,

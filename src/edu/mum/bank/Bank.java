@@ -56,7 +56,7 @@ public class Bank extends FinCo {
 		int index=0;
 		StringBuilder prefix = new StringBuilder("2224");
 		for(IClient c:clients){
-			this.addClient(c);
+			this.addClientToList(c);
 			IAccount acc;
 			if(index++%2==0){
 				acc = new CheckingAccount(c,prefix.append(i++).toString());
@@ -65,7 +65,7 @@ public class Bank extends FinCo {
 				acc = new SavingAccount(c,prefix.append(i++).toString());
 			}
 			c.addAccount(acc);
-			this.addAccount(acc);
+			this.addAccountToList(acc);
 			prefix.deleteCharAt(prefix.length()-1);
 		}
 	}

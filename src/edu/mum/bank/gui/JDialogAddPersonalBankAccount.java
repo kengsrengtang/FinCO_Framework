@@ -56,7 +56,6 @@ public class JDialogAddPersonalBankAccount extends JDialogAddPersonalAccount {
 			factory = new SavingAccountFactory();
 		}
 		try {
-
 			BankAccount account = (BankAccount) parentframe.getApplication()
 					.createAccountForPerson(
 							JTextField_NAME.getText(),
@@ -73,6 +72,7 @@ public class JDialogAddPersonalBankAccount extends JDialogAddPersonalAccount {
 					JTextField_NAME.getText(), JTextField_CT.getText(),
 					ClientType.ORGANIZATIONAL, account.getType(),account.getBalance() };
 				parentframe.addAccount(rowData);
+				parentframe.getApplication().addAccountToList(account);
 			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

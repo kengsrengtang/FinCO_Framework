@@ -50,11 +50,11 @@ public class FinCo {
 		}
 	}
 
-	public void addAccount(IAccount account) {
+	public void addAccountToList(IAccount account) {
 		accounts.put(account.getAccountNo(), account);
 	}
 
-	public void addClient(IClient client) {
+	public void addClientToList(IClient client) {
 		clients.add(client);
 	}
 
@@ -74,10 +74,10 @@ public class FinCo {
 		int i=1;
 		StringBuilder prefix = new StringBuilder("2224");
 		for(IClient c:client){
-			this.addClient(c);
+			this.addClientToList(c);
 			IAccount acc = new Account(c,prefix.append(i++).toString());
 			c.addAccount(acc);
-			this.addAccount(acc);
+			this.addAccountToList(acc);
 			prefix.deleteCharAt(prefix.length()-1);
 		}
 	}
@@ -87,6 +87,7 @@ public class FinCo {
 				String email, Date birthDate,String accountNo, AccountFactory factory) {
 		IClient client = ClientFactory.createPerson(name, street, city, state, zip, email, birthDate);
 		if(client != null) {
+			addClientToList(client);
 			IAccount acc = factory.createAccount(client, accountNo);
 			client.addAccount(acc);
 			return acc;
@@ -99,6 +100,7 @@ public class FinCo {
 			String email, int noOfEmployees,String accountNo,AccountFactory factory) {
 			IClient client = ClientFactory.createOrganization(name, street, city, state, zip, email, noOfEmployees);
 			if(client != null) {
+				addClientToList(client);
 				IAccount acc = factory.createAccount(client, accountNo);
 				client.addAccount(acc);
 				return acc;
@@ -137,6 +139,4 @@ public class FinCo {
 	public List<IClient> getClients() {
 		return clients;
 	}
-	
-	
 }
