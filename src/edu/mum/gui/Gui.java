@@ -25,13 +25,13 @@ public class Gui extends javax.swing.JFrame implements Observer{
 	/****
 	 * init variables in the object
 	 ****/
-	javax.swing.JPanel topPanel, rightPanel;
-	javax.swing.JPanel centerPanel = new javax.swing.JPanel();
-	javax.swing.JButton JButton_PerAC = new javax.swing.JButton();
+	protected javax.swing.JPanel topPanel, rightPanel;
+	protected javax.swing.JPanel centerPanel = new javax.swing.JPanel();
+	protected javax.swing.JButton JButton_PerAC = new javax.swing.JButton();
 	protected javax.swing.JButton JButton_CompAC = new javax.swing.JButton();
-	javax.swing.JButton JButton_Deposit = new javax.swing.JButton();
-	javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
-	javax.swing.JButton JButton_Exit = new javax.swing.JButton();
+	protected javax.swing.JButton JButton_Deposit = new javax.swing.JButton();
+	protected javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
+	protected javax.swing.JButton JButton_Exit = new javax.swing.JButton();
 
 	protected DefaultTableModel model;
 	protected JTable JTable1;
