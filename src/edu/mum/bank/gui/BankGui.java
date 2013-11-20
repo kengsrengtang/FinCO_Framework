@@ -17,15 +17,11 @@ import edu.mum.gui.JDialogAddAccount;
 public class BankGui extends Gui{
 
 	JButton btnAddInterest ;
-	private Bank application;
+	Bank myApplication;
 	public BankGui(Bank application) {
 		super(application);
-		this.application = application;
 		setUpBank();
-	}
-	
-	public Bank getApplication() {
-		return application;
+		myApplication = application;
 	}
 	
 	private void setUpBank() {
@@ -64,14 +60,22 @@ public class BankGui extends Gui{
 				JOptionPane.WARNING_MESSAGE);
 		
 		//call application.addInterest();
-		application.addInterestToAllAccount();
+		myApplication.addInterestToAllAccount();
 		loadAccounts();
 	}
 	
 	@Override
-	protected void loadAccounts() {
+	public void updateAmount(String amount) {
+		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
+		if (selection >= 0) {
+			model.setValueAt(amount, selection, 4);
+		}
+	}
+	
+	@Override
+	public void loadAccounts() {
+		clearTable();
 		List<IClient> clients = application.getClients();
-		
 		for (IClient client : clients) {
 		    edu.mum.client.Address address = client.getAddress();
 			List<IAccount> accounts = client.getAccounts();
@@ -82,7 +86,6 @@ public class BankGui extends Gui{
 				addAccount(rowData);
 			}
 		}
-		
 	}
 	
 	@Override

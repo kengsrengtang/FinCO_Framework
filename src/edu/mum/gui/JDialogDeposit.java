@@ -17,7 +17,8 @@ public class JDialogDeposit extends JDialogEntry{
 	public void SumbitEntry() {
 		double currentBalance = parentframe.getApplication().depositing(accnr, 
 										Double.parseDouble(JTextField_Deposit.getText()));
-		parentframe.updateAmount(String.valueOf(currentBalance));
+		parentframe.loadAccounts();
+		//parentframe.updateAmount(String.valueOf(currentBalance));
 	}
 
 }

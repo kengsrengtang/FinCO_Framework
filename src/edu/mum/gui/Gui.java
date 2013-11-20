@@ -31,11 +31,11 @@ public class Gui extends javax.swing.JFrame {
 	javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
 	javax.swing.JButton JButton_Exit = new javax.swing.JButton();
 
-	private DefaultTableModel model;
-	private JTable JTable1;
+	protected DefaultTableModel model;
+	protected JTable JTable1;
 	private JScrollPane JScrollPane1;
 	private Object rowdata[];
-	private FinCo application;
+	protected FinCo application;
 	
 	//Application getter
 	public FinCo getApplication() {
@@ -186,8 +186,11 @@ public class Gui extends javax.swing.JFrame {
 			model.setValueAt(amount, selection, 4);
 		}
 	}
-
-	protected void loadAccounts() {
+	protected void clearTable(){
+		model.setNumRows(0);
+	}
+	public void loadAccounts() {
+		clearTable();
 		List<IClient> clients = application.getClients();
 		for (IClient client : clients) {
 			List<IAccount> accounts = client.getAccounts();
