@@ -1,13 +1,11 @@
 package edu.mum.bank;
 
-import edu.mum.account.AccountFactory;
-import edu.mum.account.IAccount;
 import edu.mum.client.IClient;
 
-public class CheckingAccountFactory extends AccountFactory {
+public class CheckingAccountFactory extends BankAccountFactory {
 
 	@Override
-	public IAccount createAccount(IClient client, String accountNo) {
+	public BankAccount createAccount(IClient client, String accountNo) {
 		return new CheckingAccount(client, accountNo);
 	}
 	

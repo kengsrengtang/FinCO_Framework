@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import edu.mum.account.AccountFactory;
+import edu.mum.account.IAccount;
 import edu.mum.client.ClientType;
 
 public class JDialogAddOrganizationAccount extends JDialogAddAccount {
@@ -31,9 +32,13 @@ public class JDialogAddOrganizationAccount extends JDialogAddAccount {
 
 	@Override
 	protected void addAccount() {
+		AccountFactory factory = new AccountFactory();
+		addAccount(factory);
+	}
+	
+	protected void addAccount(AccountFactory factory) {
 		try {
-			AccountFactory factory = new AccountFactory();
-			boolean success = parentframe.getApplication()
+			IAccount account = parentframe.getApplication()
 					.createAccountForOrganization(JTextField_NAME.getText(),
 							JTextField_STR.getText(), JTextField_CT.getText(),
 							JTextField_ST.getText(), JTextField_ZIP.getText(),
@@ -41,7 +46,7 @@ public class JDialogAddOrganizationAccount extends JDialogAddAccount {
 							Integer.parseInt(txtNoOfEmployee.getText()),
 							JTextField_ACNR.getText(), factory);
 
-			if (success) {
+			if (account != null) {
 				Object[] rowData = new Object[] { JTextField_ACNR.getText(),
 						JTextField_NAME.getText(), JTextField_EM.getText(),
 						ClientType.ORGANIZATIONAL, "0" };
@@ -50,9 +55,6 @@ public class JDialogAddOrganizationAccount extends JDialogAddAccount {
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(this,
 					"Please enter number for number of Employee");
-			// JOptionPane.showConfirmDialog(this,
-			// "Please enter number for number of Employee");
-			// e.printStackTrace();
 		}
 	}
 
