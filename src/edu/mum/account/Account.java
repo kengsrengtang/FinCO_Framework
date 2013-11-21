@@ -75,4 +75,8 @@ public class Account extends Observable implements IAccount {
 		// TODO Auto-generated method stub
 		addObserver(observer);
 	}
+	
+	public void addEntry(IEntry entry) {
+		deposits.add(entry);
+	}
 }

@@ -1,6 +1,10 @@
 package edu.mum.bank;
 
+import java.util.Date;
+
 import edu.mum.client.IClient;
+import edu.mum.entry.Entry;
+import edu.mum.entry.IEntry;
 
 public class CheckingAccount extends BankAccount{
 	static final double interestRate = 0.01;
@@ -12,6 +16,8 @@ public class CheckingAccount extends BankAccount{
 	public void addInterest() {
 		double totalInterest;
 		totalInterest = this.getBalance() * interestRate;
+		IEntry entry = new Entry(new Date(), totalInterest);
+		addEntry(entry);
 		this.setBalance(this.getBalance() + totalInterest);
 	}
 

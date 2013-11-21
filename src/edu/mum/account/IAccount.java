@@ -14,4 +14,5 @@ public interface IAccount {
 	boolean withdraw(IEntry entry);
 	String getType();
 	void addAObserver(Observer observer);
+	void addEntry(IEntry entry);
 }

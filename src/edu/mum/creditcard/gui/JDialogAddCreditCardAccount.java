@@ -88,7 +88,7 @@ public class JDialogAddCreditCardAccount extends JDialogAddPersonalAccount {
 			if(account != null){
 				Object[] rowData = new Object[] { JTextField_ACNR.getText(),
 						JTextField_NAME.getText(), JTextField_CT.getText(),
-						account.getType(), "0" };
+						account.getType(), "0.0" };
 				parentframe.addAccount(rowData);
 				parentframe.getApplication().addAccountToList(account);
 			}

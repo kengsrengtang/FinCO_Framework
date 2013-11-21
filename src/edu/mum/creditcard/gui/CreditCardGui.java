@@ -24,6 +24,7 @@ public class CreditCardGui extends Gui {
 		capplication = application;
 		setTitle("Credit Card Co Application");
 		JButton_CompAC.setVisible(false);
+		JButton_PerAC.setText("Add Credit Card");
 		addButtons();
 		initializeAccountTable(new String[] { "CC No.", "Name",
 				"Expiry Date", "Type","Balance"});
